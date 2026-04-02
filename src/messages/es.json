@@ -1,0 +1,349 @@
+{
+  "Nav": {
+    "home": "Inicio",
+    "projects": "Proyectos",
+    "services": "Servicios",
+    "about": "Nosotros",
+    "blog": "Blog",
+    "contact": "Contacto"
+  },
+  "Home": {
+    "heroTitle": "Agencia de branding y desarrollo web",
+    "heroSubtitle": "¿Estás listo para escalar tu negocio?",
+    "heroDescription": "Creamos estrategias para posicionar tu negocio en el mercado y en Google",
+    "servicesTitle": "Nuestros servicios",
+    "introTitle": "Enfoque",
+    "introText": "Nos especializamos en crear marcas a través del diseño de estrategias de posicionamiento para las empresas, con base en la identificación de sus valores y la estructura de diferenciadores que les permitan destacar, ser memorables, conectar e interactuar con su audiencia, mediante la creación de canales de comunicación relevantes como el desarrollo web, el marketing y la publicidad.",
+    "recentProjectsTitle": "Proyectos destacados"
+  },
+  
+  "HorizontalScroll": {
+    "title": {
+      "h2": "Exploramos y construimos marcas",
+      "p": "Una breve descripción del bloque…"
+    },
+    "items": {
+      "item1": { "title": "Branding", "description": "Texto 1" },
+      "item2": { "title": "Web", "description": "Texto 2" },
+      "item3": { "title": "Marketing", "description": "Texto 3" }
+    }
+  },
+  
+  "Services": {
+    "sectionTitle": "Servicios",
+    "sectionSubtitle": "Ofrecemos valor real",
+    "items": {
+      "branding": {
+        "title": "Branding + Estrategia de marca",
+        "excerpt": "Para lograrlo partimos de la esencia de la marca: quién es, qué hace, cómo lo hace, para quién lo hace, qué lo motiva, a quién debe interesarle, por qué debe interesarle, son algunos de los cuestionamiento que debemos formularnos para dar inicio a la estrategia.",
+        "cta": "Ver servicio"
+      },
+      "identity": {
+        "title": "Logo + Identidad visual",
+        "excerpt": "Para lograrlo partimos de la esencia de la marca: quién es, qué hace, cómo lo hace, para quién lo hace, qué lo motiva, a quién debe interesarle, por qué debe interesarle, son algunos de los cuestionamiento que debemos formularnos para dar inicio a la estrategia.",
+        "cta": "Ver servicio"
+      },
+      "web": {
+        "title": "Desarrollo web + SEO",
+        "excerpt": "Para lograrlo partimos de la esencia de la marca: quién es, qué hace, cómo lo hace, para quién lo hace, qué lo motiva, a quién debe interesarle, por qué debe interesarle, son algunos de los cuestionamiento que debemos formularnos para dar inicio a la estrategia.",
+        "cta": "Ver servicio"
+      },
+      "marketing": {
+        "title": "Publicidad",
+        "excerpt": "Para lograrlo partimos de la esencia de la marca: quién es, qué hace, cómo lo hace, para quién lo hace, qué lo motiva, a quién debe interesarle, por qué debe interesarle, son algunos de los cuestionamiento que debemos formularnos para dar inicio a la estrategia.",
+        "cta": "Ver servicio"
+      }
+    }
+  },
+  "Clients": {
+    "clientsTitle": "Nuestros clientes",
+    "clientsSubtitle": "Marcas con las que hemos trabajado",
+    "items":{
+      "nonacsa":{
+        "company": "Nonacsa, una empresa especializada en sistemas de acero para la industria"
+      },
+      "altozano":{
+        "company": "Setgo, distribuidor de maltas para cerveza artesanal"
+      },
+      "nestea":{
+        "company": "Haustiere, especializados en el cuidado de mascotas"
+      },
+      "chapur":{
+        "company": "Emeká, desarrollador inmobiliario en el sureste mexicano"
+      },
+      "deliciosa":{
+        "company": "Grupo Linmex, desarrollador inmobiliario"
+      },
+      "rivero":{
+        "company": "Emeká, desarrollador inmobiliario en el sureste mexicano"
+      },
+      "proalmex":{
+        "company": "Emeká, desarrollador inmobiliario en el sureste mexicano"
+      },
+      "iotam":{
+        "company": "Emeká, desarrollador inmobiliario en el sureste mexicano"
+      },
+      "suhissa":{
+        "company": "Emeká, desarrollador inmobiliario en el sureste mexicano"
+      },
+      "emeka":{
+        "company": "Emeká, desarrollador inmobiliario en el sureste mexicano"
+      },
+      "linmex":{
+        "company": "Emeká, desarrollador inmobiliario en el sureste mexicano"
+      },
+      "grandmarina":{
+        "company": "Emeká, desarrollador inmobiliario en el sureste mexicano"
+      },
+      "sany":{
+        "company": "Emeká, desarrollador inmobiliario en el sureste mexicano"
+      },
+      "fotoideas":{
+        "company": "Emeká, desarrollador inmobiliario en el sureste mexicano"
+      },
+      "mg":{
+        "company": "Emeká, desarrollador inmobiliario en el sureste mexicano"
+      }
+    }
+  },
+  "Testimonials": {
+    "title": "Testimonios",
+    "subtitle": "Lo que dicen nuestros clientes",
+    "ariaLabel": "Carrusel de testimonios",
+    "prev": "Anterior",
+    "next": "Siguiente",
+    "items": {
+      "linmex": {
+        "role": "Co-fundador",
+        "quote": "La colaboración con Marker a través de Miguel fue extraordinaria. Sin lugar a duda son un equipo altamente experimentado y con una gran calidad humana."
+      },
+      "emeka": {
+        "role": "Director General",
+        "quote": "Excelente servicio, atención y calidad de las páginas web que nos han hecho. Muy satisfecho con su trabajo."
+      },
+      "setgo": {
+        "role": "Director General",
+        "quote": "Recomendamos MARKER una empresa que da una solución única a tus necesidades además que ofrecen un distintivo en ellas y con profesionalismo."
+      },
+      "haustiere": {
+        "role": "Fundador",
+        "quote": "Los recomiendo ampliamente, estoy encantado con todo lo que me han ayudado. Hacen un trabajo excepcional desde el primer contacto."
+      }
+    }
+  },
+  "Projects": {
+    "heroTitle": "Proyectos de Branding, Marketing y Desarrollo Web",
+    "heroSubtitle": "Diseñamos con estrategia, para lograr un impacto real.",
+    "section": "Proyectos",
+    "titleDescription": "Antecedentes",
+    "titleWeDo": "Qué hicimos",
+    "titleChallenge": "El reto",
+    "titleSolution": "La solución",
+    "suhissa": {
+      "category": "Branding",
+      "sector": "Industrial",
+      "client": "Suhissa",
+      "cardDescription": "Rebranding para una empresa del sector tecnológico hidráulico",
+      "title": "Identidad de marca para Marker",
+      "description": "Suhissa es una empresa líder a nivel nacional en la implementación de tecnologías para la medición de flujos, con 15 años de servicio continuo, encargada de la asesoría y elaboración de proyectos de ingeniería hidráulica, integrando productos y servicios para brindar soluciones innovadoras en el manejo de las aguas nacionales y procesos industriales.",
+      "weDo": ["Rediseño de logo", "Identidad corporativa"],
+      "challenge": "A pesar de ser una empresa enfocada a brindar soluciones tecnológicas para el sector industrial a nivel nacional, con un alcance importante y clientes que son referencia en sus respectivos mercados, Suhissa seguía recibiendo llamadas de particulares por error, buscando piezas a granel para sus instalaciones en casa, servicio que no era parte de su oferta. La razón de que se diera esta confusión, radicaba principalmente en que su mensaje no era del todo claro, era general y ambiguo. Era necesario una reestructuración en su comunicación, tanto en el fondo como en la forma.",
+      "solution": "Al comienzo del proceso de investigación, el logo original - una representación figurativa de una gota - nunca formó parte de aquello que sufriría alguna modificación o actualización, sin embargo, conforme se avanzaba en la estrategia, resultaba cada vez mas evidente que este no representaba aquello que hacían de Suhissa especial. Su aporte no era el agua, sino la medición de esta a través de tecnología en software y hardware, así como válvulas y precisión telemétrica. El problema fue más evidente cuando decidimos usar su logo original sobre un garrafón de agua o una lavandería, a modo de ejemplo de como no estaba enfocado en lo que ellos realmente hacían, pues ese logo podría funcionar bien en los dos ejemplos anteriores. Lo importante era representar en primer lugar a la tecnología detrás para la medición del agua, por tal motivo se abstraen conceptos como los sistemas de medición (código) y telemetría, el mundo como medio donde se mide, la sonrisa de un buen servicio ofrecido, fortaleza detectada durante el proceso de investigación, y como elemento secundario pero aún relevante, la gota de agua. Con estos 4 elementos se crea un nuevo logo, desde donde se extiende para dar lugar a una identidad moderna, tecnológica y sobre todo, industrial.",
+      "metaTitle": "Marker - Proyecto de branding",
+      "metaDescription": "Proyecto de identidad y sistema visual para Marker."
+    },
+    "emeka": {
+      "category": "Web",
+      "sector": "Inmobiliario",
+      "client": "Emeká",
+      "cardDescription": "Desarrollo de sitio web para un desarrollador inmobiliario",
+      "title": "Sitio web para Nonacsa",
+      "description": "EMEKÁ es un desarrollador inmobiliario especializado en la construcción de edificios con un enfoque humano y funcional, preocupados por la calidad de vida de sus habitantes. Para sus proyectos, ubicados principalmente en Mérida y Tulum, usan materiales de la región, como parte de su respeto a la naturaleza y a la convivencia con ella, buscando una integración entre el interior y el exterior.",
+      "weDo": ["Diseño web", "Desarrollo en Eleventy"],
+      "challenge": "Emeká ya contaba con un sitio web previo, sin embargo no lograba representar adecuadamente su estilo de diseño y construcción moderno, así como una visión formal y sobria. Pero el principal problema es que no lograban posicionamiento orgánico en Google, salvo que fueran buscados con el nombre de la empresa. El reto era hacerlos aparecer en las búsquedas con términos como desarrollador inmobiliario o similares.",
+      "solution": "Nuestra solución inició desde la estructura de los contenidos, buscando que fuera lo más sencillo y simple posible para el usuario al momento de navegar. No obstante, la interactividad tenía que sentirse moderna, fuera de lo común a lo que encuentras en otros sitios de la competencia. Para ello, usamos código que se centra en crear animaciones dependientes del movimiento del scroll, logrando con ello que el usuario tenga control de los elementos moviéndose en pantalla. Por último, desarrollamos una sección para sus proyectos, desde donde cada desarrollo es presentado con sus propios colores e identidad, a fin de brindar este concepto de que cada proyecto es único y diferente.",
+      "metaTitle": "Nonacsa - Proyecto web",
+      "metaDescription": "Proyecto de diseño y desarrollo web para Nonacsa."
+    },
+    "armarius": {
+      "category": "Branding",
+      "sector": "Fábrica de Muebles",
+      "client": "Armarius",
+      "cardDescription": "Desarrollo de sitio web para un desarrollador inmobiliario",
+      "title": "Sitio web para Nonacsa",
+      "description": "EMEKÁ es un desarrollador inmobiliario especializado en la construcción de edificios con un enfoque humano y funcional, preocupados por la calidad de vida de sus habitantes. Para sus proyectos, ubicados principalmente en Mérida y Tulum, usan materiales de la región, como parte de su respeto a la naturaleza y a la convivencia con ella, buscando una integración entre el interior y el exterior.",
+      "weDo": ["Diseño web", "Desarrollo en Eleventy"],
+      "challenge": "Emeká ya contaba con un sitio web previo, sin embargo no lograba representar adecuadamente su estilo de diseño y construcción moderno, así como una visión formal y sobria. Pero el principal problema es que no lograban posicionamiento orgánico en Google, salvo que fueran buscados con el nombre de la empresa. El reto era hacerlos aparecer en las búsquedas con términos como desarrollador inmobiliario o similares.",
+      "solution": "Nuestra solución inició desde la estructura de los contenidos, buscando que fuera lo más sencillo y simple posible para el usuario al momento de navegar. No obstante, la interactividad tenía que sentirse moderna, fuera de lo común a lo que encuentras en otros sitios de la competencia. Para ello, usamos código que se centra en crear animaciones dependientes del movimiento del scroll, logrando con ello que el usuario tenga control de los elementos moviéndose en pantalla. Por último, desarrollamos una sección para sus proyectos, desde donde cada desarrollo es presentado con sus propios colores e identidad, a fin de brindar este concepto de que cada proyecto es único y diferente.",
+      "metaTitle": "Nonacsa - Proyecto web",
+      "metaDescription": "Proyecto de diseño y desarrollo web para Nonacsa."
+    },
+    "fitpadel": {
+      "category": "Branding",
+      "sector": "Padel",
+      "client": "Fitpadel",
+      "cardDescription": "Rebranding para una empresa del sector tecnológico hidráulico",
+      "title": "Identidad de marca para Marker",
+      "description": "Suhissa es una empresa líder a nivel nacional en la implementación de tecnologías para la medición de flujos, con 15 años de servicio continuo, encargada de la asesoría y elaboración de proyectos de ingeniería hidráulica, integrando productos y servicios para brindar soluciones innovadoras en el manejo de las aguas nacionales y procesos industriales.",
+      "weDo": ["Rediseño de logo", "Identidad corporativa"],
+      "challenge": "A pesar de ser una empresa enfocada a brindar soluciones tecnológicas para el sector industrial a nivel nacional, con un alcance importante y clientes que son referencia en sus respectivos mercados, Suhissa seguía recibiendo llamadas de particulares por error, buscando piezas a granel para sus instalaciones en casa, servicio que no era parte de su oferta. La razón de que se diera esta confusión, radicaba principalmente en que su mensaje no era del todo claro, era general y ambiguo. Era necesario una reestructuración en su comunicación, tanto en el fondo como en la forma.",
+      "solution": "Al comienzo del proceso de investigación, el logo original - una representación figurativa de una gota - nunca formó parte de aquello que sufriría alguna modificación o actualización, sin embargo, conforme se avanzaba en la estrategia, resultaba cada vez mas evidente que este no representaba aquello que hacían de Suhissa especial. Su aporte no era el agua, sino la medición de esta a través de tecnología en software y hardware, así como válvulas y precisión telemétrica. El problema fue más evidente cuando decidimos usar su logo original sobre un garrafón de agua o una lavandería, a modo de ejemplo de como no estaba enfocado en lo que ellos realmente hacían, pues ese logo podría funcionar bien en los dos ejemplos anteriores. Lo importante era representar en primer lugar a la tecnología detrás para la medición del agua, por tal motivo se abstraen conceptos como los sistemas de medición (código) y telemetría, el mundo como medio donde se mide, la sonrisa de un buen servicio ofrecido, fortaleza detectada durante el proceso de investigación, y como elemento secundario pero aún relevante, la gota de agua. Con estos 4 elementos se crea un nuevo logo, desde donde se extiende para dar lugar a una identidad moderna, tecnológica y sobre todo, industrial.",
+      "metaTitle": "Marker - Proyecto de branding",
+      "metaDescription": "Proyecto de identidad y sistema visual para Marker."
+    },
+    "fotoideas": {
+      "category": "Branding",
+      "sector": "Imprenta",
+      "client": "Fotoideas",
+      "cardDescription": "Rebranding para una empresa del sector tecnológico hidráulico",
+      "title": "Identidad de marca para Marker",
+      "description": "Suhissa es una empresa líder a nivel nacional en la implementación de tecnologías para la medición de flujos, con 15 años de servicio continuo, encargada de la asesoría y elaboración de proyectos de ingeniería hidráulica, integrando productos y servicios para brindar soluciones innovadoras en el manejo de las aguas nacionales y procesos industriales.",
+      "weDo": ["Rediseño de logo", "Identidad corporativa"],
+      "challenge": "A pesar de ser una empresa enfocada a brindar soluciones tecnológicas para el sector industrial a nivel nacional, con un alcance importante y clientes que son referencia en sus respectivos mercados, Suhissa seguía recibiendo llamadas de particulares por error, buscando piezas a granel para sus instalaciones en casa, servicio que no era parte de su oferta. La razón de que se diera esta confusión, radicaba principalmente en que su mensaje no era del todo claro, era general y ambiguo. Era necesario una reestructuración en su comunicación, tanto en el fondo como en la forma.",
+      "solution": "Al comienzo del proceso de investigación, el logo original - una representación figurativa de una gota - nunca formó parte de aquello que sufriría alguna modificación o actualización, sin embargo, conforme se avanzaba en la estrategia, resultaba cada vez mas evidente que este no representaba aquello que hacían de Suhissa especial. Su aporte no era el agua, sino la medición de esta a través de tecnología en software y hardware, así como válvulas y precisión telemétrica. El problema fue más evidente cuando decidimos usar su logo original sobre un garrafón de agua o una lavandería, a modo de ejemplo de como no estaba enfocado en lo que ellos realmente hacían, pues ese logo podría funcionar bien en los dos ejemplos anteriores. Lo importante era representar en primer lugar a la tecnología detrás para la medición del agua, por tal motivo se abstraen conceptos como los sistemas de medición (código) y telemetría, el mundo como medio donde se mide, la sonrisa de un buen servicio ofrecido, fortaleza detectada durante el proceso de investigación, y como elemento secundario pero aún relevante, la gota de agua. Con estos 4 elementos se crea un nuevo logo, desde donde se extiende para dar lugar a una identidad moderna, tecnológica y sobre todo, industrial.",
+      "metaTitle": "Marker - Proyecto de branding",
+      "metaDescription": "Proyecto de identidad y sistema visual para Marker."
+    },
+    "grandmarina": {
+      "category": "Branding",
+      "sector": "Club Náutico",
+      "client": "Grand Marina Kinuh",
+      "cardDescription": "Rebranding para una empresa del sector tecnológico hidráulico",
+      "title": "Identidad de marca para Marker",
+      "description": "Suhissa es una empresa líder a nivel nacional en la implementación de tecnologías para la medición de flujos, con 15 años de servicio continuo, encargada de la asesoría y elaboración de proyectos de ingeniería hidráulica, integrando productos y servicios para brindar soluciones innovadoras en el manejo de las aguas nacionales y procesos industriales.",
+      "weDo": ["Rediseño de logo", "Identidad corporativa"],
+      "challenge": "A pesar de ser una empresa enfocada a brindar soluciones tecnológicas para el sector industrial a nivel nacional, con un alcance importante y clientes que son referencia en sus respectivos mercados, Suhissa seguía recibiendo llamadas de particulares por error, buscando piezas a granel para sus instalaciones en casa, servicio que no era parte de su oferta. La razón de que se diera esta confusión, radicaba principalmente en que su mensaje no era del todo claro, era general y ambiguo. Era necesario una reestructuración en su comunicación, tanto en el fondo como en la forma.",
+      "solution": "Al comienzo del proceso de investigación, el logo original - una representación figurativa de una gota - nunca formó parte de aquello que sufriría alguna modificación o actualización, sin embargo, conforme se avanzaba en la estrategia, resultaba cada vez mas evidente que este no representaba aquello que hacían de Suhissa especial. Su aporte no era el agua, sino la medición de esta a través de tecnología en software y hardware, así como válvulas y precisión telemétrica. El problema fue más evidente cuando decidimos usar su logo original sobre un garrafón de agua o una lavandería, a modo de ejemplo de como no estaba enfocado en lo que ellos realmente hacían, pues ese logo podría funcionar bien en los dos ejemplos anteriores. Lo importante era representar en primer lugar a la tecnología detrás para la medición del agua, por tal motivo se abstraen conceptos como los sistemas de medición (código) y telemetría, el mundo como medio donde se mide, la sonrisa de un buen servicio ofrecido, fortaleza detectada durante el proceso de investigación, y como elemento secundario pero aún relevante, la gota de agua. Con estos 4 elementos se crea un nuevo logo, desde donde se extiende para dar lugar a una identidad moderna, tecnológica y sobre todo, industrial.",
+      "metaTitle": "Marker - Proyecto de branding",
+      "metaDescription": "Proyecto de identidad y sistema visual para Marker."
+    },
+    "haustiere": {
+      "category": "Branding",
+      "sector": "Veterinaria",
+      "client": "Haustiere",
+      "cardDescription": "Rebranding para una empresa del sector tecnológico hidráulico",
+      "title": "Identidad de marca para Marker",
+      "description": "Suhissa es una empresa líder a nivel nacional en la implementación de tecnologías para la medición de flujos, con 15 años de servicio continuo, encargada de la asesoría y elaboración de proyectos de ingeniería hidráulica, integrando productos y servicios para brindar soluciones innovadoras en el manejo de las aguas nacionales y procesos industriales.",
+      "weDo": ["Rediseño de logo", "Identidad corporativa"],
+      "challenge": "A pesar de ser una empresa enfocada a brindar soluciones tecnológicas para el sector industrial a nivel nacional, con un alcance importante y clientes que son referencia en sus respectivos mercados, Suhissa seguía recibiendo llamadas de particulares por error, buscando piezas a granel para sus instalaciones en casa, servicio que no era parte de su oferta. La razón de que se diera esta confusión, radicaba principalmente en que su mensaje no era del todo claro, era general y ambiguo. Era necesario una reestructuración en su comunicación, tanto en el fondo como en la forma.",
+      "solution": "Al comienzo del proceso de investigación, el logo original - una representación figurativa de una gota - nunca formó parte de aquello que sufriría alguna modificación o actualización, sin embargo, conforme se avanzaba en la estrategia, resultaba cada vez mas evidente que este no representaba aquello que hacían de Suhissa especial. Su aporte no era el agua, sino la medición de esta a través de tecnología en software y hardware, así como válvulas y precisión telemétrica. El problema fue más evidente cuando decidimos usar su logo original sobre un garrafón de agua o una lavandería, a modo de ejemplo de como no estaba enfocado en lo que ellos realmente hacían, pues ese logo podría funcionar bien en los dos ejemplos anteriores. Lo importante era representar en primer lugar a la tecnología detrás para la medición del agua, por tal motivo se abstraen conceptos como los sistemas de medición (código) y telemetría, el mundo como medio donde se mide, la sonrisa de un buen servicio ofrecido, fortaleza detectada durante el proceso de investigación, y como elemento secundario pero aún relevante, la gota de agua. Con estos 4 elementos se crea un nuevo logo, desde donde se extiende para dar lugar a una identidad moderna, tecnológica y sobre todo, industrial.",
+      "metaTitle": "Marker - Proyecto de branding",
+      "metaDescription": "Proyecto de identidad y sistema visual para Marker."
+    },
+    "iotam": {
+      "category": "Web",
+      "sector": "Tecnología",
+      "client": "Iotam",
+      "cardDescription": "Rebranding para una empresa del sector tecnológico hidráulico",
+      "title": "Identidad de marca para Marker",
+      "description": "Suhissa es una empresa líder a nivel nacional en la implementación de tecnologías para la medición de flujos, con 15 años de servicio continuo, encargada de la asesoría y elaboración de proyectos de ingeniería hidráulica, integrando productos y servicios para brindar soluciones innovadoras en el manejo de las aguas nacionales y procesos industriales.",
+      "weDo": ["Rediseño de logo", "Identidad corporativa"],
+      "challenge": "A pesar de ser una empresa enfocada a brindar soluciones tecnológicas para el sector industrial a nivel nacional, con un alcance importante y clientes que son referencia en sus respectivos mercados, Suhissa seguía recibiendo llamadas de particulares por error, buscando piezas a granel para sus instalaciones en casa, servicio que no era parte de su oferta. La razón de que se diera esta confusión, radicaba principalmente en que su mensaje no era del todo claro, era general y ambiguo. Era necesario una reestructuración en su comunicación, tanto en el fondo como en la forma.",
+      "solution": "Al comienzo del proceso de investigación, el logo original - una representación figurativa de una gota - nunca formó parte de aquello que sufriría alguna modificación o actualización, sin embargo, conforme se avanzaba en la estrategia, resultaba cada vez mas evidente que este no representaba aquello que hacían de Suhissa especial. Su aporte no era el agua, sino la medición de esta a través de tecnología en software y hardware, así como válvulas y precisión telemétrica. El problema fue más evidente cuando decidimos usar su logo original sobre un garrafón de agua o una lavandería, a modo de ejemplo de como no estaba enfocado en lo que ellos realmente hacían, pues ese logo podría funcionar bien en los dos ejemplos anteriores. Lo importante era representar en primer lugar a la tecnología detrás para la medición del agua, por tal motivo se abstraen conceptos como los sistemas de medición (código) y telemetría, el mundo como medio donde se mide, la sonrisa de un buen servicio ofrecido, fortaleza detectada durante el proceso de investigación, y como elemento secundario pero aún relevante, la gota de agua. Con estos 4 elementos se crea un nuevo logo, desde donde se extiende para dar lugar a una identidad moderna, tecnológica y sobre todo, industrial.",
+      "metaTitle": "Marker - Proyecto de branding",
+      "metaDescription": "Proyecto de identidad y sistema visual para Marker."
+    },
+    "linmex": {
+      "category": "Branding",
+      "sector": "Inmobiliario",
+      "client": "Linmex",
+      "cardDescription": "Rebranding para una empresa del sector tecnológico hidráulico",
+      "title": "Identidad de marca para Marker",
+      "description": "Suhissa es una empresa líder a nivel nacional en la implementación de tecnologías para la medición de flujos, con 15 años de servicio continuo, encargada de la asesoría y elaboración de proyectos de ingeniería hidráulica, integrando productos y servicios para brindar soluciones innovadoras en el manejo de las aguas nacionales y procesos industriales.",
+      "weDo": ["Rediseño de logo", "Identidad corporativa"],
+      "challenge": "A pesar de ser una empresa enfocada a brindar soluciones tecnológicas para el sector industrial a nivel nacional, con un alcance importante y clientes que son referencia en sus respectivos mercados, Suhissa seguía recibiendo llamadas de particulares por error, buscando piezas a granel para sus instalaciones en casa, servicio que no era parte de su oferta. La razón de que se diera esta confusión, radicaba principalmente en que su mensaje no era del todo claro, era general y ambiguo. Era necesario una reestructuración en su comunicación, tanto en el fondo como en la forma.",
+      "solution": "Al comienzo del proceso de investigación, el logo original - una representación figurativa de una gota - nunca formó parte de aquello que sufriría alguna modificación o actualización, sin embargo, conforme se avanzaba en la estrategia, resultaba cada vez mas evidente que este no representaba aquello que hacían de Suhissa especial. Su aporte no era el agua, sino la medición de esta a través de tecnología en software y hardware, así como válvulas y precisión telemétrica. El problema fue más evidente cuando decidimos usar su logo original sobre un garrafón de agua o una lavandería, a modo de ejemplo de como no estaba enfocado en lo que ellos realmente hacían, pues ese logo podría funcionar bien en los dos ejemplos anteriores. Lo importante era representar en primer lugar a la tecnología detrás para la medición del agua, por tal motivo se abstraen conceptos como los sistemas de medición (código) y telemetría, el mundo como medio donde se mide, la sonrisa de un buen servicio ofrecido, fortaleza detectada durante el proceso de investigación, y como elemento secundario pero aún relevante, la gota de agua. Con estos 4 elementos se crea un nuevo logo, desde donde se extiende para dar lugar a una identidad moderna, tecnológica y sobre todo, industrial.",
+      "metaTitle": "Marker - Proyecto de branding",
+      "metaDescription": "Proyecto de identidad y sistema visual para Marker."
+    },
+    "nervo": {
+      "category": "Branding",
+      "sector": "Inmobiliario",
+      "client": "Nervo",
+      "cardDescription": "Rebranding para una empresa del sector tecnológico hidráulico",
+      "title": "Identidad de marca para Marker",
+      "description": "Suhissa es una empresa líder a nivel nacional en la implementación de tecnologías para la medición de flujos, con 15 años de servicio continuo, encargada de la asesoría y elaboración de proyectos de ingeniería hidráulica, integrando productos y servicios para brindar soluciones innovadoras en el manejo de las aguas nacionales y procesos industriales.",
+      "weDo": ["Rediseño de logo", "Identidad corporativa"],
+      "challenge": "A pesar de ser una empresa enfocada a brindar soluciones tecnológicas para el sector industrial a nivel nacional, con un alcance importante y clientes que son referencia en sus respectivos mercados, Suhissa seguía recibiendo llamadas de particulares por error, buscando piezas a granel para sus instalaciones en casa, servicio que no era parte de su oferta. La razón de que se diera esta confusión, radicaba principalmente en que su mensaje no era del todo claro, era general y ambiguo. Era necesario una reestructuración en su comunicación, tanto en el fondo como en la forma.",
+      "solution": "Al comienzo del proceso de investigación, el logo original - una representación figurativa de una gota - nunca formó parte de aquello que sufriría alguna modificación o actualización, sin embargo, conforme se avanzaba en la estrategia, resultaba cada vez mas evidente que este no representaba aquello que hacían de Suhissa especial. Su aporte no era el agua, sino la medición de esta a través de tecnología en software y hardware, así como válvulas y precisión telemétrica. El problema fue más evidente cuando decidimos usar su logo original sobre un garrafón de agua o una lavandería, a modo de ejemplo de como no estaba enfocado en lo que ellos realmente hacían, pues ese logo podría funcionar bien en los dos ejemplos anteriores. Lo importante era representar en primer lugar a la tecnología detrás para la medición del agua, por tal motivo se abstraen conceptos como los sistemas de medición (código) y telemetría, el mundo como medio donde se mide, la sonrisa de un buen servicio ofrecido, fortaleza detectada durante el proceso de investigación, y como elemento secundario pero aún relevante, la gota de agua. Con estos 4 elementos se crea un nuevo logo, desde donde se extiende para dar lugar a una identidad moderna, tecnológica y sobre todo, industrial.",
+      "metaTitle": "Marker - Proyecto de branding",
+      "metaDescription": "Proyecto de identidad y sistema visual para Marker."
+    }
+  },
+  "ProjectsList": {
+    "filterAll": "Todos los proyectos",
+    "filterCategoryLabel": "Por categoría",
+    "filterSectorLabel": "Por industria",
+    "sortLabel": "Ordenar por",
+    "sortNewest": "Más nuevo",
+    "sortOldest": "Más antiguo",
+    "sortAZ": "A-Z",
+    "empty": "No hay proyectos que coincidan con estos filtros.",
+    "loadMore": "Cargar más proyectos"
+  },
+  "PreFooter": {
+    "title": "Contáctanos."
+  },
+  "Footer": {
+    "tagline": "Estudio de branding, marketing y web con base en Mérida, México.",
+    "navigationTitle": "Navegación",
+    "linkHome": "Inicio",
+    "linkProjects": "Proyectos",
+    "linkAbout": "Nosotros",
+    "linkContact": "Contacto",
+    "contactTitle": "Contacto",
+    "rights": "Todos los derechos reservados.",
+    "privacy": "Aviso de privacidad",
+    "terms": "Términos y condiciones"
+  },
+  "ContactThankYou": {
+    "title": "¡Gracias por contactarnos!",
+    "message": "Hemos recibido tu mensaje y te responderemos muy pronto.",
+    "backHome": "Volver al inicio"
+  },
+  "ContactForm": {
+    "title": "Cuéntanos sobre tu proyecto",
+    "firstnameLabel": "Nombre",
+    "firstnamePlaceholder": "Escribe tu nombre",
+    "lastnameLabel": "Apellidos",
+    "lastnamePlaceholder": "Escribe tus apellidos",
+    "phoneLabel": "Teléfono",
+    "phonePlaceholder": "Incluye lada",
+    "emailLabel": "Correo electrónico",
+    "emailPlaceholder": "tu@correo.com",
+    "cityLabel": "Ciudad",
+    "cityPlaceholder": "¿Dónde te encuentras?",
+    "companyLabel": "Empresa",
+    "companyPlaceholder": "Nombre de la empresa (opcional)",
+    "serviceLabel": "Servicio de interés",
+    "servicePlaceholder": "Elige una opción",
+    "serviceBranding": "Branding",
+    "serviceWeb": "Diseño web",
+    "serviceAds": "Publicidad",
+    "serviceStrategy": "Estrategia",
+    "messageLabel": "Comentarios",
+    "messagePlaceholder": "Cuéntanos qué necesitas o en qué etapa está tu proyecto",
+    "submit": "Enviar",
+    "submitLoading": "Enviando...",
+    "errorGeneric": "Hubo un error, inténtalo nuevamente.",
+    "successInline": "¡Mensaje enviado correctamente!",
+    "errors": {
+      "firstnameRequired": "El nombre es obligatorio.",
+      "firstnameMax": "El nombre es demasiado largo.",
+      "firstnameTooLong": "El nombre es demasiado largo",
+      "lastnameRequired": "Los apellidos son obligatorios.",
+      "lastnameMax": "Los apellidos son demasiado largos.",
+      "lastnameTooLong": "Los apellidos son demasiado largos",
+      "phoneRequired": "El teléfono es obligatorio.",
+      "phoneMax": "El teléfono es demasiado largo.",
+      "phoneTooLong": "El teléfono es demasiado largo.",
+      "phoneInvalid": "El teléfono no es válido.",
+      "emailRequired": "El correo electrónico es obligatorio.",
+      "emailInvalid": "Introduce un correo electrónico válido.",
+      "cityMax": "La ciudad es demasiado larga.",
+      "companyMax": "El nombre de la empresa es demasiado largo.",
+      "serviceRequired": "Selecciona un servicio de interés.",
+      "messageMax": "El mensaje es demasiado largo."
+    }
+  }
+}

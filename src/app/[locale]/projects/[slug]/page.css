@@ -1,0 +1,136 @@
+#ProjectDetail{
+
+  .section__hero {
+    padding: 5rem 0% 0;
+    .col__top{
+      position: relative;
+      width: 100%;
+      height: auto;
+      overflow: hidden;
+      padding: 0 5%;
+      .breadcrumb{
+        margin-bottom: 2rem;
+        span{
+          font-size: var(--size-sm);
+          opacity: 0.8;
+          a{
+            font-size: inherit;
+            opacity: 0.8;
+          }
+        }
+      }
+      h1{
+        font-size: var(--size-3xl);
+        font-weight: 500;
+        color: var(--color-primary);
+      }
+    }
+    .column__2{
+      padding: 2rem 5% 2rem;
+      .col__left{
+       --left: 30;
+      }
+      .col__right{
+        --right: 70;
+      }
+    }
+    .col__bottom{
+      padding: 0rem 5%;
+      img {
+        object-fit: cover;
+        border-radius: var(--radius);
+      }
+    }
+  }
+
+  .section__intro{
+    padding: 5rem 5% 0rem;
+    .column__2{
+      .col__left{
+        --left: 30;
+      }
+      .col__right{
+        --right: 70;
+      }
+    }
+    .column__1{
+      padding-top: 5rem;
+      img{
+        border-radius: var(--radius);
+      }
+    }
+  }
+
+  .section__solution{
+    padding: 5rem 5% 0rem;
+    .column__2{
+      .col__left{
+        --left: 30;
+      }
+      .col__right{
+        --right: 70;
+      }
+    }
+  }
+
+  .section__gallery {
+    padding: 5rem 5% 0rem;
+    ul{
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 3rem;
+      li{
+        line-height: 0;
+        img{
+          width: 100%;
+          height: auto;
+          border-radius: var(--radius);
+        }
+      }
+    }
+  }
+  &.cat__web{
+    .section__gallery{
+      padding: 5rem 0 0;
+      ul{
+        gap: 0rem;
+        li{
+          transform: translateX(0) !important;
+            opacity: 1 !important;
+          img{
+            transform: translateX(0) !important;
+            opacity: 1 !important;
+          }
+        }
+      }
+    }
+  }
+
+  @media (min-width: 768px) {
+    .project__gallery-list {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+
+  .project__gallery-media {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    border-radius: 12px;
+  }
+
+  .project__gallery-img {
+    object-fit: cover;
+  }
+
+}
+
+.dark #ProjectDetail .section__hero{
+  .col__top{
+    h1{
+      color: var(--color-white);
+    }
+  }
+}

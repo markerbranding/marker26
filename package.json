@@ -9,9 +9,19 @@
     "lint": "eslint"
   },
   "dependencies": {
-    "next": "16.0.4",
+    "@hookform/resolvers": "^5.2.2",
+    "@splidejs/react-splide": "^0.7.12",
+    "@splidejs/splide": "^4.1.4",
+    "@splinetool/react-spline": "^4.1.0",
+    "@studio-freight/lenis": "^1.0.42",
+    "gsap": "^3.13.0",
+    "next": "^16.1.2",
+    "next-intl": "^4.5.5",
     "react": "19.2.0",
-    "react-dom": "19.2.0"
+    "react-dom": "19.2.0",
+    "react-hook-form": "^7.67.0",
+    "sonner": "^2.0.7",
+    "zod": "^4.1.13"
   },
   "devDependencies": {
     "@types/node": "^20",

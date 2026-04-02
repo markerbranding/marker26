@@ -1,0 +1,151 @@
+/* TestimonialsSlider.css */
+
+.section__testimonials {
+  padding: var(--pad) 0%;
+  position: relative;
+  .column__1{
+    padding: 0 5%;
+  }
+
+  .column__2{
+    padding-inline: 5%;
+    .col__left{
+      --left: 65;
+    }
+    .col__right{
+      --right: 35;
+      display: flex;
+      justify-content: flex-end;
+      align-items: flex-end;
+      .testimonials__arrows{
+        width: fit-content;
+        height: fit-content;
+        display: flex;
+        gap: 2rem;
+        .btn__arrow{
+          width: 3rem;
+          height: auto;
+          aspect-ratio: 1 / 1;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background-color: transparent;
+          cursor: pointer;
+          &:hover{
+            svg{
+              path{
+                transition: fill 0.3s ease;
+                fill: var(--color-secondary);
+              }
+              
+            }
+          }
+          &.btn__arrow__prev{
+            transform: rotate(180deg);
+          }
+        }
+      }
+    }
+  }
+
+
+  .splide{
+    padding-top: clamp(3rem, 5vh, 7rem);
+    ul.splide__pagination{
+      position: relative;
+      bottom: 0;
+      margin-top: 3rem;
+      li{
+        .splide__pagination__page{
+          width: 2.5rem;
+          border-radius: unset;
+          opacity: 1;
+          &:focus{
+            outline: none;
+          }
+          &.is-active{
+            transform: unset;
+            background-color: var(--color-secondary);
+          }
+        }
+      }
+    }
+    .splide__track{
+      .splide__list{
+        .splide__slide{
+          --focus: 0;
+          filter: blur(calc((1 - var(--focus)) * 6px));
+          opacity: calc(0.45 + var(--focus) * 0.55);
+          transform: scale(calc(0.96 + var(--focus) * 0.04));
+          transition: filter 0.2s linear, opacity 0.2s linear, transform 0.2s linear;
+          will-change: filter, transform;   
+          .testimonial__card {
+            border: 0px solid rgba(255,255,255,0.4);
+            border-radius: var(--radius);
+            padding: clamp(2rem, 4vw, 4rem);
+            background-color: var(--color-gray-light);/*e0e4e8*/
+            height: 100%;
+            .testimonial__card__wrapper{
+              display: flex;
+              flex-direction: row;
+              align-items: flex-start;
+              justify-content: center;
+              flex-wrap: wrap;
+              gap: var(--gap);
+              .testimonial__card__left {
+                flex: 25 1 0;
+                img {
+                  display: block;
+                  border-radius: var(--radius);
+                  margin-bottom: 1rem;
+                  width: clamp(5rem, 3vw, 6rem) !important;
+                  height: auto !important;
+                  aspect-ratio: 1 / 1;
+                }
+                div{
+                  h3 {
+                    font-size: var(--size-md);
+                    font-weight: 500;
+                    color: var(--color-secondary-dark);
+                    margin-bottom: 0.15rem;
+                    text-transform: unset;
+                  }
+                  h4{
+                    font-size: var(--size-xs);
+                    font-weight: 400;
+                  }
+                }
+                
+                .testimonial__card__meta {
+                  font-size: 0.9rem;
+                  opacity: 0.75;
+                }
+              }
+              .testimonial__card__right {
+                flex: 75 1 0;
+                padding-left: 3rem;
+                svg{
+                  margin-bottom: 1.3rem;
+                }
+                .testimonial__card__quote {
+                  font-size: var(--size-lg);
+                  line-height: 1.55;
+                  margin: 0;
+                  flex: 1;
+                }
+              }
+            }
+            
+          }
+        }
+      }
+    }
+  }
+
+  
+
+  /* Splide tweaks (opcional) */
+  .splide__arrow {
+    border-radius: 999px;
+  }
+}

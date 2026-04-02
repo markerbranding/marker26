@@ -1,0 +1,20 @@
+#Projects{
+
+    .section__hero{
+        --pad: clamp(4rem, 3vh, 6rem) 5%;
+        .column__1{
+            h1{
+                font-weight: 400;
+                color: var(--color-primary-light);
+                opacity: 0.8;
+            }
+            h2{
+                font-size: var(--size-3xl);
+                color: var(--color-primary);
+                font-weight: 500;
+                width: min(100%, clamp(32rem, 70vw, 50%));
+            }
+        }
+    }
+
+}
