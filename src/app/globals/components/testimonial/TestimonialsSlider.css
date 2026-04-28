@@ -83,7 +83,7 @@
             border: 0px solid rgba(255,255,255,0.4);
             border-radius: var(--radius);
             padding: clamp(2rem, 4vw, 4rem);
-            background-color: var(--color-gray-light);/*e0e4e8*/
+            background-color: #fbfbfb;/*e0e4e8*/
             height: 100%;
             .testimonial__card__wrapper{
               display: flex;
