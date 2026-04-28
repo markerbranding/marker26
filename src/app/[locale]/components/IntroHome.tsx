@@ -14,102 +14,88 @@ export default function IntroHome() {
     if (!rootRef.current) return;
     if (!gsap || !SplitText || !ScrollTrigger) return;
 
-    let split: any = null;
-    let resizeTimer: number | null = null;
-
-    const build = () => {
-      // 1) Limpieza dura (si ya existía)
-      if (split) {
-        split.revert();
-        split = null;
-      }
-
-      // Mata SOLO triggers dentro de este root (evita romper otros)
-      ScrollTrigger.getAll().forEach((st) => {
-        const triggerEl = st.trigger as Element | null;
-        if (triggerEl && rootRef.current?.contains(triggerEl)) {
-          st.kill(true);
-        }
-      });
-
-      // 2) Split otra vez (con el layout ya actualizado)
-      split = SplitText.create(rootRef.current!.querySelector(".split"), {
-        type: "lines",
-        mask: "lines",
-        autoSplit: true,
-      });
-
-      // Estado inicial (la “máscara” funciona mejor con yPercent)
-      gsap.set(split.lines, { yPercent: 100, autoAlpha: 1 });
-
-      const isMobile = window.innerWidth < 1024;
-
-      // Estado inicial
-      gsap.set(split.lines, { yPercent: 100, autoAlpha: 0 });
-
-      split.lines.forEach((line: HTMLElement, i: number) => {
-        if (isMobile) {
-          gsap.to(line, {
-            yPercent: 0,
-            autoAlpha: 1,
-            ease: "power3.out",
-            duration: 0.8,
-            delay: i * 0.08,          // stagger manual
-            scrollTrigger: {
-              trigger: line,
-              start: "top 95%",       // más generoso en móvil
-              once: true,             // dispara una vez y se destruye
-              invalidateOnRefresh: true,
-            },
-          });
-        } else {
-          gsap.to(line, {
-            yPercent: 0,
-            autoAlpha: 1,
-            ease: "power3.out",
-            scrollTrigger: {
-              trigger: line,
-              start: "top 90%",
-              end: "top 65%",
-              scrub: true,
-              invalidateOnRefresh: true,
-            },
-          });
-        }
-      });
-
-      // 4) Recalcular mediciones
-      ScrollTrigger.refresh();
-    };
-
     const ctx = gsap.context(() => {
-      build();
+      const mm = gsap.matchMedia();
 
-      const onResize = () => {
-        // debounce
-        if (resizeTimer) window.clearTimeout(resizeTimer);
-        resizeTimer = window.setTimeout(() => {
-          // importante: SplitText depende del layout final
-          build();
-        }, 150);
-      };
+      mm.add("(min-width: 1025px)", () => {
+        let split: any = null;
+        let resizeTimer: number | null = null;
 
-      window.addEventListener("resize", onResize);
+        const killLocalTriggers = () => {
+          ScrollTrigger.getAll().forEach((st) => {
+            const triggerEl = st.trigger as Element | null;
+            if (triggerEl && rootRef.current?.contains(triggerEl)) {
+              st.kill(true);
+            }
+          });
+        };
 
-      return () => {
-        window.removeEventListener("resize", onResize);
-        if (resizeTimer) window.clearTimeout(resizeTimer);
-
-        // cleanup final
-        if (split) split.revert();
-
-        ScrollTrigger.getAll().forEach((st) => {
-          const triggerEl = st.trigger as Element | null;
-          if (triggerEl && rootRef.current?.contains(triggerEl)) {
-            st.kill(true);
+        const build = () => {
+          if (split) {
+            split.revert();
+            split = null;
           }
-        });
-      };
+
+          killLocalTriggers();
+
+          const el = rootRef.current!.querySelector(".split");
+          if (!el) return;
+
+          split = SplitText.create(el, {
+            type: "lines",
+            mask: "lines",
+          });
+
+          gsap.set(split.lines, { yPercent: 100, autoAlpha: 1 });
+
+          split.lines.forEach((line: HTMLElement) => {
+            gsap.to(line, {
+              yPercent: 0,
+              ease: "none",
+              scrollTrigger: {
+                trigger: line,
+                start: "top 90%",
+                end: "top 65%",
+                scrub: true,
+                invalidateOnRefresh: true,
+              },
+            });
+          });
+
+          ScrollTrigger.refresh();
+        };
+
+        build();
+
+        const onResize = () => {
+          if (resizeTimer) window.clearTimeout(resizeTimer);
+
+          resizeTimer = window.setTimeout(() => {
+            build();
+          }, 250);
+        };
+
+        window.addEventListener("resize", onResize);
+
+        return () => {
+          window.removeEventListener("resize", onResize);
+          if (resizeTimer) window.clearTimeout(resizeTimer);
+          if (split) split.revert();
+          killLocalTriggers();
+        };
+      });
+
+      // Mobile/tablet: texto normal, sin split ni triggers
+      mm.add("(max-width: 1024px)", () => {
+        const el = rootRef.current?.querySelector(".split");
+        if (el) {
+          gsap.set(el, { clearProps: "all" });
+        }
+
+        return () => {};
+      });
+
+      return () => mm.revert();
     }, rootRef);
 
     return () => ctx.revert();
@@ -120,6 +106,7 @@ export default function IntroHome() {
       <div className="column__1 fadeInOut">
         <h3 className="prefix">{t("introTitle")}</h3>
       </div>
+
       <div className="column__1">
         <p className="split">{t("introText")}</p>
       </div>

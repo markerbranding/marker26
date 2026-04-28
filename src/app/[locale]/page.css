@@ -38,10 +38,12 @@
     }
 
     .section__hero{
-        padding: clamp(2rem, 2vh, 6rem) 0 0;
+        padding-block: calc((1 - var(--stack)) * 2rem + var(--stack) * 1rem);
+        padding-inline: 0%;
         z-index: 1;
         .col__top{
-            padding: 4rem 5% 5vh;
+            padding-block: calc((1 - var(--stack)) * 4rem + var(--stack) * 3rem);
+            padding-inline: 5%;
             h2{
                 font-size: var(--size-3xl);
             }
@@ -61,11 +63,12 @@
         position: relative;
         overflow: hidden;
         z-index: 1;
+        padding-block: calc((1 - var(--stack)) * 10rem + var(--stack) * 6rem);
         .column__1{
             z-index: 1;
             padding-right: 10%;
             p{
-                font-size: var(--size-3xl);
+                font-size: var(--size-2xl);
                 line-height: 1.3;
             }
         }
