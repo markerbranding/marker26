@@ -42,20 +42,40 @@ export default function IntroHome() {
       // Estado inicial (la “máscara” funciona mejor con yPercent)
       gsap.set(split.lines, { yPercent: 100, autoAlpha: 1 });
 
-      // 3) Un trigger por línea (como lo tienes)
-      split.lines.forEach((line: HTMLElement) => {
-        gsap.to(line, {
-          yPercent: 0,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: line,
-            start: "top 90%",
-            end: "top 65%",
-            scrub: true,
-            invalidateOnRefresh: true,
-            // markers: true,
-          },
-        });
+      const isMobile = window.innerWidth < 1024;
+
+      // Estado inicial
+      gsap.set(split.lines, { yPercent: 100, autoAlpha: 0 });
+
+      split.lines.forEach((line: HTMLElement, i: number) => {
+        if (isMobile) {
+          gsap.to(line, {
+            yPercent: 0,
+            autoAlpha: 1,
+            ease: "power3.out",
+            duration: 0.8,
+            delay: i * 0.08,          // stagger manual
+            scrollTrigger: {
+              trigger: line,
+              start: "top 95%",       // más generoso en móvil
+              once: true,             // dispara una vez y se destruye
+              invalidateOnRefresh: true,
+            },
+          });
+        } else {
+          gsap.to(line, {
+            yPercent: 0,
+            autoAlpha: 1,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: line,
+              start: "top 90%",
+              end: "top 65%",
+              scrub: true,
+              invalidateOnRefresh: true,
+            },
+          });
+        }
       });
 
       // 4) Recalcular mediciones
