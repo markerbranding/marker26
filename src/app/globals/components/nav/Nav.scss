@@ -5,7 +5,8 @@
     background-color: var(--page-bg-color);
     top: 0;
     z-index: 50;
-    padding: 0 5%;
+    padding-block: 0;
+    padding-inline: var(--gap);
     width: 100%;
     height: auto;
     box-sizing: border-box;

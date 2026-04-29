@@ -1,6 +1,6 @@
 "use client";
 
-import "./ScrollVideo.scss"; // Reutiliza el mismo scss
+import "./ScrollFrames.scss"; // Reutiliza el mismo scss
 import { useRef, useState, useEffect, useCallback } from "react";
 import Link from "next/link";
 import { useGsapCore } from "@/app/globals/lib/gsapClient";
@@ -9,14 +9,19 @@ import { useTranslations, useLocale } from "next-intl";
 import { services } from "@/app/globals/data/services.data";
 
 type ScrollFramesProps = {
-  // Rutas base SIN número ni extensión, ej: "/home/frames/desktop/frame_"
   desktopFramesBase: string;
   mobileFramesBase: string;
-  frameCount: number;          // 176
-  frameExtension?: string;     // "webp" | "jpg"
-  framePadding?: number;       // 4 → frame_0001
+  frameCount: number;
+  frameExtension?: string;
+  framePadding?: number;
   poster?: string;
   className?: string;
+  desktopEndOffset?: number;
+  mobileEndOffset?: number;
+  desktopLastFrame?: number;
+  mobileLastFrame?: number;
+  // Nueva prop: restar la altura del último service-card en móvil
+  mobileSubtractLastCard?: boolean;
 };
 
 export default function ScrollFrames({
@@ -27,6 +32,11 @@ export default function ScrollFrames({
   framePadding = 4,
   poster,
   className = "",
+  desktopEndOffset = 0,
+  mobileEndOffset = 0,
+  desktopLastFrame,
+  mobileLastFrame,
+  mobileSubtractLastCard,
 }: ScrollFramesProps) {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
@@ -117,70 +127,102 @@ export default function ScrollFrames({
 
   // ScrollTrigger → canvas
   useIsomorphicLayoutEffect(() => {
-    if (!gsap || !ScrollTrigger) return;
-    if (!containerRef.current || !canvasRef.current || !leftRef.current || !wrapperRef.current) return;
-    if (!framesReady) return;
+  if (!gsap || !ScrollTrigger) return;
+  if (!containerRef.current || !canvasRef.current || !leftRef.current || !wrapperRef.current) return;
+  if (!framesReady) return;
 
-    const ctx = gsap.context(() => {
-      const canvas = canvasRef.current!;
-      const section = containerRef.current!;
-      const left = leftRef.current!;
-      const wrapper = wrapperRef.current!;
+  const ctx = gsap.context(() => {
+    const canvas = canvasRef.current!;
+    const section = containerRef.current!;
+    const left = leftRef.current!;
+    const wrapper = wrapperRef.current!;
 
-      // Asegura dimensiones del canvas desde el primer frame
-      if (framesRef.current[0]) {
-        canvas.width = framesRef.current[0].naturalWidth;
-        canvas.height = framesRef.current[0].naturalHeight;
-      }
+    if (framesRef.current[0]) {
+      canvas.width = framesRef.current[0].naturalWidth;
+      canvas.height = framesRef.current[0].naturalHeight;
+    }
 
-      drawFrame(0);
+    drawFrame(0);
 
-      const st = ScrollTrigger.create({
+    const mobile = window.innerWidth <= 1024;
+
+    // Frame máximo al que llega la animación
+    const lastFrame = mobile
+      ? (mobileLastFrame ?? frameCount - 1)
+      : (desktopLastFrame ?? frameCount - 1);
+
+    // Resuelve offset ya sea número o función
+    const resolveOffset = (offset: number | (() => number) | undefined): number => {
+      if (typeof offset === "function") return offset();
+      return offset ?? 0;
+    };
+
+    const st = ScrollTrigger.create({
         trigger: section,
-        start: "top top",
+        start: "top 60px",
         end: () => {
-          const distance = Math.max(0, left.offsetHeight - wrapper.offsetHeight);
-          return `+=${distance}`;
+            const distance = Math.max(0, left.offsetHeight - wrapper.offsetHeight);
+
+            let endOffset = mobile ? (mobileEndOffset ?? 0) : (desktopEndOffset ?? 0);
+
+            if (mobile && mobileSubtractLastCard) {
+                const lastCard = left.querySelector<HTMLElement>(".service-card:last-child");
+                if (lastCard) {
+                const leftRect = left.getBoundingClientRect();
+                const cardRect = lastCard.getBoundingClientRect();
+                // posición del card relativa al top de left en el documento
+                const cardRelativeTop = cardRect.top - leftRect.top + left.scrollTop;
+                const pad = 50;
+                endOffset += left.offsetHeight - cardRelativeTop + pad;
+
+
+                console.log("left.offsetHeight:", left.offsetHeight);
+                console.log("lastCard.offsetTop:", lastCard.offsetTop);
+                console.log("cardRelativeTop:", cardRelativeTop);
+            }
+        }
+
+            return `+=${Math.max(0, distance - endOffset)}`;
         },
         scrub: true,
         invalidateOnRefresh: true,
+        markers: false,
         onUpdate: (self) => {
-          const total = framesRef.current.length;
-          if (!total) return;
+            const total = framesRef.current.length;
+            if (!total) return;
 
-          // Mapea progreso 0→1 al índice de frame 0→(total-1)
-          const index = Math.min(
-            Math.round(self.progress * (total - 1)),
-            total - 1
-          );
+            const index = Math.min(
+            Math.round(self.progress * lastFrame),
+            lastFrame
+            );
 
-          if (index !== currentFrameRef.current) {
-            drawFrame(index);
-          }
+            if (index !== currentFrameRef.current) {
+                drawFrame(index);
+            }
         },
-      });
+    });
 
-      let rAF = 0;
-      const onResize = () => {
-        cancelAnimationFrame(rAF);
-        rAF = requestAnimationFrame(() => ScrollTrigger.refresh());
-      };
-      window.addEventListener("resize", onResize);
+    let rAF = 0;
+    const onResize = () => {
+      cancelAnimationFrame(rAF);
+      rAF = requestAnimationFrame(() => ScrollTrigger.refresh());
+    };
+    window.addEventListener("resize", onResize);
 
-      const ro = new ResizeObserver(() => ScrollTrigger.refresh());
-      ro.observe(left);
-      ro.observe(wrapper);
+    const ro = new ResizeObserver(() => ScrollTrigger.refresh());
+    ro.observe(left);
+    ro.observe(wrapper);
 
-      return () => {
-        window.removeEventListener("resize", onResize);
-        cancelAnimationFrame(rAF);
-        ro.disconnect();
-        st.kill();
-      };
-    }, containerRef);
+    return () => {
+      window.removeEventListener("resize", onResize);
+      cancelAnimationFrame(rAF);
+      ro.disconnect();
+      st.kill();
+    };
+  }, containerRef);
 
-    return () => ctx.revert();
-  }, [gsap, ScrollTrigger, framesReady, drawFrame]);
+  return () => ctx.revert();
+}, [gsap, ScrollTrigger, framesReady, drawFrame, desktopEndOffset, mobileEndOffset, desktopLastFrame, mobileLastFrame, frameCount, mobileSubtractLastCard]);
 
   return (
     <section className={`section__services ${className}`}>

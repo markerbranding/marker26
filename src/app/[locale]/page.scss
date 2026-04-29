@@ -43,7 +43,7 @@
         z-index: 1;
         .col__top{
             padding-block: calc((1 - var(--stack)) * 4rem + var(--stack) * 3rem);
-            padding-inline: 5%;
+            padding-inline: var(--gap);
             h2{
                 font-size: var(--size-3xl);
             }

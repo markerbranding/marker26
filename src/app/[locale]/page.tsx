@@ -74,8 +74,8 @@ export default async function HomePage({
         desktopFramesBase="/home/frames/desktop/frame_"
         mobileFramesBase="/home/frames/mobile/frame_"
         frameCount={176}
-        frameExtension="webp"
-        framePadding={4}
+        mobileSubtractLastCard={true}
+        desktopEndOffset={400}
       />
 
 
