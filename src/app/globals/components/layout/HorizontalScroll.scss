@@ -1,5 +1,5 @@
 .section__horizontalScroll {
-    padding: 0 0 10vh 5vw;
+    padding: 0 0 10vh var(--gap);
     height: auto;
     height: 102dvh;
     justify-content: flex-end;
@@ -29,17 +29,17 @@
             justify-content: flex-end;
             padding-bottom: clamp(1rem, (100vh - 768px) * 0.1, 2rem);
             h3{
-                color: var(--color-secondary-light);
+                color: var(--color-secondary);
             }
             h2{
-                color: var(--color-gray-light);
+                color: var(--color-primary);
             }
         }
         ul {
             height: 80%;
             display: inline-flex;
             width: auto;
-            gap: 10rem;
+            gap: 5rem;
             overflow: hidden;
             .first__item {
                 width: 50vw;
@@ -50,7 +50,7 @@
             .scroll__item {
                 padding: 0rem 0rem;
                 height: 100%;
-                width: 33.33vw;
+                width: 28vw;
                 min-width: 600px;
                 display: flex;
                 flex-direction: column;
@@ -59,8 +59,8 @@
                 overflow: hidden;
                 max-height: 100%;
                 .hcard{
-                    padding: clamp(1rem, (100vw - 1024px) * 0.05, 2rem);
-                    background-color: #ffffff10;
+                    padding: 0;
+                    background-color: #d7d7d700;
                     height: auto;
                     line-height: 0;
                     border-radius: var(--radius);
@@ -79,12 +79,14 @@
                                 border-radius: var(--radius);
                                 object-fit: cover;
                                 transform-origin: center center;
+                                aspect-ratio:  1 / 1;
                             }
                         }
                     }
                     .hcard__content{
+                        padding-top: calc((1 - var(--stack)) * 0.8rem + var(--stack) * 0.5rem);
                         span{
-                            color: var(--color-secondary-light);
+                            color: var(--color-primary);
                             opacity: 0.8;
                             font-size: var(--size-2xs);
                             text-transform: uppercase;
@@ -93,15 +95,15 @@
                         }
                         h3{
                             font-size: var(--size-lg);
-                            color: var(--color-gray-light);
+                            color: var(--color-secondary-dark);
                             margin-bottom: .3rem;
                             transition: color .3s;
                             text-transform: none;
+                            font-weight: 500;
                         }
                         p{
-                            font-size: var(--size-xs);
-                            color: var(--color-gray-light);
-                            opacity: 0.6;
+                            font-size: var(--size-md);
+                            color: var(--color-primary);
                             -webkit-line-clamp: 2;
                             -webkit-box-orient: vertical;
                             min-height: 2.8rem;

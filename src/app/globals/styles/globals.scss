@@ -6,9 +6,9 @@
   /* Color */
   --color-primary: #2f3c40;
   --color-primary-light: #525f62;
-  --color-primary-dark: #1e2528;
+  --color-primary-dark: #161a1c;
 
-  --color-secondary: #0166b9;
+  --color-secondary: #0682e5;
   --color-secondary-dark: #064478;
   --color-secondary-light: #629dcd;
 
@@ -91,6 +91,8 @@ body {
   margin: 0px !important;
   font-family: var(--font-myfont), sans-serif;
   color: var(--color-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 ul:where([role="list"]),
 ol:where([role="list"]) {
@@ -288,6 +290,36 @@ img {
     &::after {
       transform: rotate(135deg);
       margin-top: -0.5em;
+    }
+  }
+}
+
+.btn__wa {
+  position: fixed;
+  right: calc((1 - var(--stack)) * 2rem + var(--stack) * 1rem);
+  bottom: calc(5% - 30px);
+  z-index: 10;
+  width: calc((1 - var(--stack)) * 60px + var(--stack) * 50px);
+  height: calc((1 - var(--stack)) * 60px + var(--stack) * 50px);
+  a {
+    background-color: rgb(0, 145, 41);
+    border-radius: calc((1 - var(--stack)) * 30px + var(--stack) * 25px);
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    padding: 0.7rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--color-gray);
+    box-shadow: 0px 0px 20px rgba(0,0,0,0.3);
+    transition: background-color 0.3s ease;
+    svg{
+      aspect-ratio: 1 / 1;
+    }
+    &:hover{
+      background-color: rgb(0, 104, 29);
     }
   }
 }

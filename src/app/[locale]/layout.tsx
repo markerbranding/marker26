@@ -13,6 +13,7 @@ import GsapGlobalEffects from "@/app/globals/components/gsap/GsapGlobalEffects";
 import ScrollToTopOnRouteChange from "../globals/components/lenis/ScrollToTopOnRouteChange";
 import Footer from "../globals/components/footer/Footer";
 import { Toaster } from "sonner";
+import WAButton from "../globals/components/nav/WhatsApp";
 
 export const metadata: Metadata = {
   title: "Marker",
@@ -69,6 +70,7 @@ export default async function LocaleLayout({
         <NextIntlClientProvider locale={locale} messages={messages}>
           <LenisProvider>
             <Nav />
+            <WAButton />
             <GsapGlobalEffects />
             <ScrollToTopOnRouteChange />
             {children}
