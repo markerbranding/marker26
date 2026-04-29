@@ -66,7 +66,7 @@ export default async function HomePage({
 
       <HeroHome />
       <IntroHome />
-      <ScrollVideo src="/videos/services_home_desktop.mp4" mobileSrc="/videos/services_home_mobile.mp4" poster="/videos/output2-poster.jpg" />
+      <ScrollVideo src="/videos/services_home_desktop.mp4" mobileSrc="/videos/services_home_mobile.mp4" />
 
 
       <HorizontalScroll
