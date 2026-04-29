@@ -49,16 +49,25 @@ export default function ScrollVideo({
   }, [src, mobileSrc]);
 
   // Metadata del video
+  // Metadata del video
   useEffect(() => {
     const video = videoRef.current;
     if (!video || !ScrollTrigger) return;
 
-    const initVideoMetadata = () => {
-      video.pause();
-      video.currentTime = 0;
-
+    const initVideoMetadata = async () => {
       video.muted = true;
-      video.playsInline = true;
+      video.setAttribute("playsinline", "");
+      video.setAttribute("webkit-playsinline", "");
+      video.setAttribute("x-webkit-airplay", "allow");
+
+      // En iOS necesitas play()+pause() para desbloquear currentTime
+      try {
+        await video.play();
+        video.pause();
+        video.currentTime = 0;
+      } catch (e) {
+        // Silenciar error si autoplay falla, igual continuamos
+      }
 
       setMetadataReady(true);
 
@@ -67,17 +76,28 @@ export default function ScrollVideo({
       });
     };
 
+    // iOS necesita canplaythrough, no solo loadedmetadata
+    const onCanPlay = () => {
+      initVideoMetadata();
+      video.removeEventListener("canplaythrough", onCanPlay);
+      video.removeEventListener("loadedmetadata", onCanPlay);
+    };
+
     video.load();
 
-    if (video.readyState >= 1) {
+    if (video.readyState >= 3) {
       initVideoMetadata();
     } else {
-      video.addEventListener("loadedmetadata", initVideoMetadata);
-
-      return () => {
-        video.removeEventListener("loadedmetadata", initVideoMetadata);
-      };
+      // canplaythrough es más confiable en iOS que loadedmetadata
+      video.addEventListener("canplaythrough", onCanPlay);
+      // fallback por si canplaythrough tarda demasiado
+      video.addEventListener("loadedmetadata", onCanPlay);
     }
+
+    return () => {
+      video.removeEventListener("canplaythrough", onCanPlay);
+      video.removeEventListener("loadedmetadata", onCanPlay);
+    };
   }, [ScrollTrigger, videoSrc]);
 
   // ScrollTrigger solo controla currentTime, sin pin
@@ -140,6 +160,8 @@ export default function ScrollVideo({
     return () => ctx.revert();
   }, [gsap, ScrollTrigger, metadataReady, videoSrc]);
 
+  
+
   return (
     <section className={`section__services ${className}`}>
       <div className="column__2" ref={containerRef}>
@@ -189,7 +211,8 @@ export default function ScrollVideo({
               playsInline
               muted
               preload="auto"
-              webkit-playsinline="true"
+              webkit-playsinline=""
+              x-webkit-airplay="allow"
             />
           </div>
         </div>
