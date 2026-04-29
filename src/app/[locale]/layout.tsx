@@ -1,4 +1,5 @@
 // app/[locale]/layout.tsx
+import "@/app/globals/styles/globals.scss";
 import type { ReactNode } from "react";
 import type { Metadata } from "next";
 import { NextIntlClientProvider } from "next-intl";
@@ -7,7 +8,6 @@ import { notFound } from "next/navigation";
 import { locales } from "i18n";
 import LenisProvider from "@/app/globals/components/lenis/LenisProvider";
 import Nav from "@/app/globals/components/nav/Nav";
-import "@/app/globals/styles/globals.css";
 import localFont from "next/font/local";
 import GsapGlobalEffects from "@/app/globals/components/gsap/GsapGlobalEffects";
 import ScrollToTopOnRouteChange from "../globals/components/lenis/ScrollToTopOnRouteChange";

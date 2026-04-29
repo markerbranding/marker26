@@ -121,7 +121,6 @@ main{
     position: relative;
     z-index: 0;
     padding-block: var(--pad) 0;
-    padding-inline: 5%;
   }
 }
 
@@ -484,12 +483,13 @@ body.dark{
 
 /*  Móvil  */
 @media only screen and (max-width: 768px) {
-  :root{
+  :root {
     --radius: 10px;
+    --grid2: repeat(1, 1fr);
     --grid3: repeat(1, 1fr);
     --grid4: repeat(1, 1fr);
-    --grid5: repeat(1, 1fr);
-    --grid6: repeat(1, 1fr);
+    --grid5: repeat(2, 1fr);
+    --grid6: repeat(2, 1fr);
   }
 
   form {
@@ -499,4 +499,22 @@ body.dark{
     justify-content: flex-start;
   }
 
+  .panel__slide {
+    gap: 1rem;
+    button {
+      width: 1.3rem;
+    }
+  }
+
+  .btn__wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 0.5rem;
+    .btn {
+      width: 100%;
+    }
+  }
 }

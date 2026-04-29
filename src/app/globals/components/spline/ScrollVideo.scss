@@ -1,5 +1,5 @@
 .section__services {
-    --pad: 0rem 5vw 0;
+    padding-inline: var(--gap);
     height: auto;
     .column__2 {
         align-items: stretch;
@@ -136,19 +136,26 @@
     .section__services {
         .column__2 {
             flex-direction: column-reverse;
-        }
+            .col__left {
+                padding-top: 40vh;
+                width: 100%;
+                padding-right: 0;
+                height: 60vh;
+            }
 
-        .col__left {
-            width: 100%;
-            padding-right: 0;
-            height: 60vh;
-        }
-
-        .col__right {
-            height: 40vh !important;
-            .scroll-video__wrapper{
+            .col__right {
                 height: 40vh !important;
+                width: calc(100% - (var(--gap) * 2));
+                position: absolute;
+                z-index: 6;
+                top: 60px;
+                left: var(--gap);
+                .scroll-video__wrapper{
+                    height: 40vh !important;
+                }
             }
         }
+
+        
     }
   }

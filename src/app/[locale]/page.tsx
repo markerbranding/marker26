@@ -1,5 +1,5 @@
 // src/app/[locale]/page.tsx (o donde esté tu Home)
-import "./page.css";
+import "./page.scss";
 import PageBackgroundSetter from "@/app/globals/components/background/PageBackgroundSetter";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import HeroHome from "./components/HeroHome";

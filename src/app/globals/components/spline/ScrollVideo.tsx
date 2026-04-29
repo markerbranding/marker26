@@ -1,12 +1,12 @@
 "use client";
 
+import "./ScrollVideo.scss";
 import { useRef, useState, useEffect } from "react";
 import Link from "next/link";
 import { useGsapCore } from "@/app/globals/lib/gsapClient";
 import { useIsomorphicLayoutEffect } from "@/app/globals/hooks/useIsomorphicLayoutEffect";
 import { useTranslations, useLocale } from "next-intl";
 import { services } from "@/app/globals/data/services.data";
-import "./ScrollVideo.css";
 
 type ScrollVideoProps = {
   src: string;

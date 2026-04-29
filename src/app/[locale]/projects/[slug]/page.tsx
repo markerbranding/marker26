@@ -1,3 +1,4 @@
+import "./page.scss";
 import Image from "next/image";
 import {notFound} from "next/navigation";
 import {getTranslations} from "next-intl/server";
@@ -5,7 +6,6 @@ import PageBackgroundSetter from "@/app/globals/components/background/PageBackgr
 import {getAllSlugs, getProjectBySlug} from "@/app/globals/data/projects.data";
 import Link from "next/link";
 import HeroProjectDetail from "./components/HeroProjectDetail";
-import "./page.css";
 import PreFooter from "@/app/globals/components/footer/PreFooter";
 
 type PageProps = {

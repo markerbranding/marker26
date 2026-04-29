@@ -10,7 +10,7 @@ import QuoteImage from "./QuoteImage"
 import Arrow from "@/app/globals/components/img/Arrow"
 
 import "@splidejs/splide/dist/css/splide.min.css";
-import "./TestimonialsSlider.css";
+import "./TestimonialsSlider.scss";
 
 type Props = {
   className?: string;

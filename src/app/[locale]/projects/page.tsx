@@ -1,8 +1,8 @@
 // src/app/[locale]/projects/page.tsx
+import "./page.scss";
 import { getTranslations } from "next-intl/server";
 import { projects } from "@/app/globals/data/projects.data";
 import PageBackgroundSetter from "@/app/globals/components/background/PageBackgroundSetter";
-import "./page.css";
 import HeroProjects from "./components/HeroProjects";
 import ProjectsFilterGrid, {
   type ProjectCardWithMeta,

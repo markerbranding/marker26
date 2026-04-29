@@ -1,12 +1,12 @@
 "use client";
 
+import "./HorizontalScroll.scss";
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { useLocale } from "next-intl";
 import { useGsapCore } from "@/app/globals/lib/gsapClient";
 import { useIsomorphicLayoutEffect } from "@/app/globals/hooks/useIsomorphicLayoutEffect";
-import "./HorizontalScroll.css";
 
 type BaseTitle = {
   h2: string;

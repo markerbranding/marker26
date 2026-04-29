@@ -1,10 +1,10 @@
 "use client";
 
+import "./Nav.scss";
 import { useState, useEffect, useRef } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import "./Nav.css";
 import Logo from "@/app/globals/components/nav/Logo";
 
 export default function Nav() {

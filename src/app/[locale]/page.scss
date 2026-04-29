@@ -64,11 +64,12 @@
         overflow: hidden;
         z-index: 1;
         padding-block: calc((1 - var(--stack)) * 10rem + var(--stack) * 6rem);
+        padding-inline: var(--gap);
         .column__1{
             z-index: 1;
             padding-right: 10%;
             p{
-                font-size: var(--size-2xl);
+                font-size: calc((1 - var(--stack)) * var(--size-2xl) + var(--stack) * var(--size-xl));
                 line-height: 1.3;
             }
         }
@@ -132,6 +133,7 @@
     }
 
     .section__clients{
+        padding-inline: var(--gap);
         .column__1{
             ul.listado{
                 padding-top: clamp(3rem, 5vh, 7rem);

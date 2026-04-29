@@ -1,8 +1,8 @@
 "use client";
 
-import React, { useEffect, useId, useMemo, useRef, useState } from "react"
-import "./Accordion.css";
-import Plus from "@/app/globals/components/img/Plus"
+import "./Accordion.scss";
+import React, { useEffect, useId, useMemo, useRef, useState } from "react";
+import Plus from "@/app/globals/components/img/Plus";
 
 type AccordionItem = {
   id: number | string;
