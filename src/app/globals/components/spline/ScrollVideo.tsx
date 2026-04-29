@@ -87,24 +87,15 @@ export default function ScrollVideo({
 
         const st = ScrollTrigger.create({
           trigger: section,
-          start: "top 10%",
-          // ✅ end dinámico, recalculable en refresh
+          start: "top top",
           end: () => {
             const leftH = left.offsetHeight;
             const wrapperH = wrapper.offsetHeight;
-
-            // cuánto scroll necesita para que el pin dure lo mismo que el contenido
-            // (mínimo 0 para evitar valores negativos en layouts raros)
             const distance = Math.max(0, leftH - wrapperH);
-            const vh40 = window.innerHeight * 0.1;
 
-            // puedes sumar un extra si quieres “aire”
-            return `+=${Math.max(0, distance - vh40)}`;
+            return `+=${distance}`;
           },
           scrub: true,
-          pin: wrapper,
-          pinSpacing: true,
-          anticipatePin: 1,
           invalidateOnRefresh: true,
           onUpdate: (self) => {
             const vid = videoRef.current;

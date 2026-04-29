@@ -63,7 +63,7 @@
         position: relative;
         overflow: hidden;
         z-index: 1;
-        padding-block: calc((1 - var(--stack)) * 10rem + var(--stack) * 6rem);
+        padding-block: calc((1 - var(--stack)) * 10rem + var(--stack) * 2rem);
         padding-inline: var(--gap);
         .column__1{
             z-index: 1;
