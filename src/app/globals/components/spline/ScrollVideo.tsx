@@ -56,6 +56,13 @@ export default function ScrollVideo({
     const initVideoMetadata = () => {
       video.pause();
       video.currentTime = 0;
+
+      // 🔥 FIX iOS
+      video.muted = true;
+      video.play().then(() => {
+        video.pause();
+      }).catch(() => {});
+
       setMetadataReady(true);
 
       requestAnimationFrame(() => {
@@ -185,6 +192,7 @@ export default function ScrollVideo({
               playsInline
               muted
               preload="auto"
+              webkit-playsinline="true"
             />
           </div>
         </div>
