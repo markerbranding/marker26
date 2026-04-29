@@ -137,9 +137,10 @@
 
     .section__services {
         .column__2 {
+            position: relative;
+            display: block;
             flex-direction: column-reverse;
             align-items: stretch;
-
             .col__left {
                     width: 100%;
                     padding-top: calc(40vh + 0px);

@@ -10,12 +10,14 @@ import { services } from "@/app/globals/data/services.data";
 
 type ScrollVideoProps = {
   src: string;
+  mobileSrc?: string;
   poster?: string;
   className?: string;
 };
 
 export default function ScrollVideo({
   src,
+  mobileSrc,
   poster,
   className = ""
 }: ScrollVideoProps) {
@@ -26,14 +28,27 @@ export default function ScrollVideo({
 
   const { gsap, ScrollTrigger } = useGsapCore();
 
-  // 👉 flag para saber que YA tenemos metadata, incluso si vino de caché
   const [metadataReady, setMetadataReady] = useState(false);
+  const [videoSrc, setVideoSrc] = useState(src);
 
   const tServices = useTranslations("Services");
   const locale = useLocale();
 
-  // 1) Nos aseguramos de inicializar metadata tanto si viene por evento,
-  //    como si el video ya estaba listo cuando se montó el componente.
+  // Elegir video desktop / móvil
+  useEffect(() => {
+    const updateVideoSrc = () => {
+      const isMobile = window.innerWidth <= 1024;
+      setVideoSrc(isMobile && mobileSrc ? mobileSrc : src);
+      setMetadataReady(false);
+    };
+
+    updateVideoSrc();
+
+    window.addEventListener("resize", updateVideoSrc);
+    return () => window.removeEventListener("resize", updateVideoSrc);
+  }, [src, mobileSrc]);
+
+  // Metadata del video
   useEffect(() => {
     const video = videoRef.current;
     if (!video || !ScrollTrigger) return;
@@ -48,103 +63,83 @@ export default function ScrollVideo({
       });
     };
 
+    video.load();
+
     if (video.readyState >= 1) {
-      // Ya tiene metadata (cache o carga muy rápida)
       initVideoMetadata();
     } else {
-      // Esperamos el evento
-      const handler = () => {
-        initVideoMetadata();
-      };
-      video.addEventListener("loadedmetadata", handler);
+      video.addEventListener("loadedmetadata", initVideoMetadata);
 
       return () => {
-        video.removeEventListener("loadedmetadata", handler);
+        video.removeEventListener("loadedmetadata", initVideoMetadata);
       };
     }
-  }, [ScrollTrigger]);
+  }, [ScrollTrigger, videoSrc]);
 
-  // 2) Creamos el ScrollTrigger SOLO cuando
-  //    - gsap/ScrollTrigger existen
-  //    - refs están listos
-  //    - metadataReady es true
+  // ScrollTrigger solo controla currentTime, sin pin
   useIsomorphicLayoutEffect(() => {
     if (!gsap || !ScrollTrigger) return;
-    if (!containerRef.current || !videoWrapperRef.current || !videoRef.current) return;
+    if (!containerRef.current || !videoWrapperRef.current || !videoRef.current || !leftRef.current) return;
     if (!metadataReady) return;
 
     const ctx = gsap.context(() => {
-      const mm = gsap.matchMedia();
+      const video = videoRef.current!;
+      const wrapper = videoWrapperRef.current!;
+      const section = containerRef.current!;
+      const left = leftRef.current!;
 
-      //mm.add("(min-width: 1025px)", () => {
-        const video = videoRef.current!;
-        const wrapper = videoWrapperRef.current!;
-        const section = containerRef.current!;
-        const left = leftRef.current!;
+      video.pause();
+      video.currentTime = 0;
 
-        video.pause();
-        video.currentTime = 0;
+      const st = ScrollTrigger.create({
+        trigger: section,
+        start: "top top",
+        end: () => {
+          const leftH = left.offsetHeight;
+          const wrapperH = wrapper.offsetHeight;
+          const distance = Math.max(0, leftH - wrapperH);
 
-        const st = ScrollTrigger.create({
-          trigger: section,
-          start: "top top",
-          end: () => {
-            const leftH = left.offsetHeight;
-            const wrapperH = wrapper.offsetHeight;
-            const distance = Math.max(0, leftH - wrapperH);
+          return `+=${distance}`;
+        },
+        scrub: true,
+        invalidateOnRefresh: true,
+        onUpdate: (self) => {
+          const vid = videoRef.current;
+          if (!vid || !vid.duration || Number.isNaN(vid.duration)) return;
 
-            return `+=${distance}`;
-          },
-          scrub: true,
-          invalidateOnRefresh: true,
-          onUpdate: (self) => {
-            const vid = videoRef.current;
-            if (!vid || !vid.duration || Number.isNaN(vid.duration)) return;
+          const t = self.progress * (vid.duration - 0.05);
+          vid.currentTime = Math.min(Math.max(t, 0), vid.duration - 0.05);
+        }
+      });
 
-            const t = self.progress * (vid.duration - 0.05);
-            vid.currentTime = Math.min(Math.max(t, 0), vid.duration - 0.05);
-          }
-        });
+      let rAF = 0;
 
-        // ✅ Refresh al resize (debounce para no spammear)
-        let rAF = 0;
-        const onResize = () => {
-          cancelAnimationFrame(rAF);
-          rAF = requestAnimationFrame(() => ScrollTrigger.refresh());
-        };
-        window.addEventListener("resize", onResize);
+      const onResize = () => {
+        cancelAnimationFrame(rAF);
+        rAF = requestAnimationFrame(() => ScrollTrigger.refresh());
+      };
 
-        // ✅ Bonus: si el contenido cambia de alto por fonts/images, también refresca
-        const ro = new ResizeObserver(() => ScrollTrigger.refresh());
-        ro.observe(left);
-        ro.observe(wrapper);
+      window.addEventListener("resize", onResize);
 
-        return () => {
-          window.removeEventListener("resize", onResize);
-          cancelAnimationFrame(rAF);
-          ro.disconnect();
-          st.kill();
-        };
-      //});
+      const ro = new ResizeObserver(() => ScrollTrigger.refresh());
+      ro.observe(left);
+      ro.observe(wrapper);
 
-      // Cuando sales de desktop, mm se encarga de ejecutar el cleanup automáticamente
-      return () => mm.revert();
+      return () => {
+        window.removeEventListener("resize", onResize);
+        cancelAnimationFrame(rAF);
+        ro.disconnect();
+        st.kill();
+      };
     }, containerRef);
 
     return () => ctx.revert();
-  }, [gsap, ScrollTrigger, metadataReady]);
+  }, [gsap, ScrollTrigger, metadataReady, videoSrc]);
 
   return (
     <section className={`section__services ${className}`}>
-      {/*<div className="column__1">
-        <h3>{tServices("sectionTitle")}</h3>
-        <h2>{tServices("sectionSubtitle")}</h2>
-      </div>
-      */}
       <div className="column__2" ref={containerRef}>
         <div className="col__left scroll-video__services fadeInOut" ref={leftRef}>
-          
-
           <div className="services__list">
             <article className="service-card service-card-title">
               <div className="card__data">
@@ -152,6 +147,7 @@ export default function ScrollVideo({
                 <h2>{tServices("sectionSubtitle")}</h2>
               </div>
             </article>
+
             {services.map((service) => {
               const data = tServices.raw(`items.${service.key}`) as {
                 title: string;
@@ -162,13 +158,11 @@ export default function ScrollVideo({
               const href = `/${locale}/services/${service.slug}`;
 
               return (
-                <article
-                  key={service.key}
-                  className="service-card"
-                >
+                <article key={service.key} className="service-card">
                   <div className="card__index">
                     <span>{service.index}</span>
                   </div>
+
                   <div className="card__data">
                     <h3 className="service-card__title">{data.title}</h3>
                     <p className="service-card__excerpt">{data.excerpt}</p>
@@ -181,11 +175,12 @@ export default function ScrollVideo({
             })}
           </div>
         </div>
+
         <div className="col__right">
           <div className="scroll-video__wrapper" ref={videoWrapperRef}>
             <video
               ref={videoRef}
-              src={src}
+              src={videoSrc}
               poster={poster}
               playsInline
               muted
