@@ -13,6 +13,10 @@ export default function HeroHome() {
   useIsomorphicLayoutEffect(() => {
     if (!rootRef.current) return;
 
+    const colTop = rootRef.current.querySelector<HTMLElement>(".col__top");
+    const menu = 60;
+    const colTopHeight = colTop?.offsetHeight ?? 0;
+
     const ctx = gsap.context(() => {
         gsap.from(".hero__title", {
             y: 40,
@@ -31,12 +35,12 @@ export default function HeroHome() {
 
         gsap.to(".hero__video", {
             opacity: 1,
-            scale: 1.05,
+            scale: 1.1,
             y: "8rem",
             ease: "power2.out",
             scrollTrigger: {
               trigger: ".hero__video",
-              start: "top top",
+              start: `top ${colTopHeight + menu}`,
               end: "bottom top",
               scrub: true,
             }
