@@ -15,7 +15,8 @@ import ClientsHome from "./components/ClientsHome";
 import RecentProjectsHomeServer from "./components/RecentProjectsHome.server";
 import RecentProjectsHomeClient from "./components/RecentProjectsHome.client";
 import HorizontalScroll from "@/app/globals/components/layout/HorizontalScroll";
-import { homeHorizontalScroll } from "@/app/globals/data/horizontalScroll.data";
+//import { homeHorizontalScroll } from "@/app/globals/data/horizontalScroll.data";
+import ScrollFrames from "./components/ScrollFrames";
 
 export default async function HomePage({
   params
@@ -66,7 +67,16 @@ export default async function HomePage({
 
       <HeroHome />
       <IntroHome />
+      {/*  
       <ScrollVideo src="/videos/services_home_desktop.mp4" mobileSrc="/videos/services_home_mobile.mp4" />
+      */}
+      <ScrollFrames
+        desktopFramesBase="/home/frames/desktop/frame_"
+        mobileFramesBase="/home/frames/mobile/frame_"
+        frameCount={176}
+        frameExtension="webp"
+        framePadding={4}
+      />
 
 
       <HorizontalScroll
