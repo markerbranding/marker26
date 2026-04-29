@@ -57,11 +57,8 @@ export default function ScrollVideo({
       video.pause();
       video.currentTime = 0;
 
-      // 🔥 FIX iOS
       video.muted = true;
-      video.play().then(() => {
-        video.pause();
-      }).catch(() => {});
+      video.playsInline = true;
 
       setMetadataReady(true);
 
