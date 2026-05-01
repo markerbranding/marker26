@@ -14,6 +14,7 @@ import ScrollToTopOnRouteChange from "../globals/components/lenis/ScrollToTopOnR
 import Footer from "../globals/components/footer/Footer";
 import { Toaster } from "sonner";
 import WAButton from "../globals/components/nav/WhatsApp";
+import CursorTooltip from "../globals/components/cards/OnMouseOver";
 
 export const metadata: Metadata = {
   title: "Marker",
@@ -74,6 +75,7 @@ export default async function LocaleLayout({
             <GsapGlobalEffects />
             <ScrollToTopOnRouteChange />
             {children}
+            <CursorTooltip label="Abrir proyecto" targetSelector=".cardHover" />
             <Toaster richColors position="bottom-right" />
             <Footer />
           </LenisProvider>

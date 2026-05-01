@@ -1,10 +1,10 @@
 // ProjectCard.tsx
 "use client";
 
+import "./project-cards.scss";
 import Link from "next/link";
 import Image from "next/image";
 import {useLocale} from "next-intl";
-import "./project-cards.css";
 
 export type ProjectCardProps = {
   slug: string;

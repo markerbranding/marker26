@@ -81,7 +81,7 @@
             p{
                 color: var(--color-gray);
                 font-weight: 400;
-                font-size: calc((1 - var(--stack)) * var(--size-3xl) + var(--stack) * var(--size-xl));
+                font-size: calc((1 - var(--stack)) * var(--size-4xl) + var(--stack) * var(--size-2xl));
                 line-height: 1.2;
             }
         }

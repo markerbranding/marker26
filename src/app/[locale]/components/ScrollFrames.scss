@@ -60,7 +60,7 @@
                         align-items: center;
                     }
                     p {
-                        font-size: var(--size-md);
+                        font-size: var(--size-lg);
                         color: var(--color-gray-light);
                         line-height: 1.5;
                         margin-bottom: 2rem;
@@ -118,8 +118,8 @@
             --right: 45;
             .scroll-video__wrapper {
                 position: sticky;
-                top: 10vh;
-                height: 80vh;
+                top: 15vh;
+                height: 70vh;
                 width: 100%;
                 pointer-events: none;
                 canvas {

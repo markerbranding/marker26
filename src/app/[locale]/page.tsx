@@ -75,7 +75,7 @@ export default async function HomePage({
         mobileFramesBase="/home/frames/mobile/frame_"
         frameCount={176}
         mobileSubtractLastCard={true}
-        desktopEndOffset={200}
+        desktopEndOffset={30}
       />
 
 

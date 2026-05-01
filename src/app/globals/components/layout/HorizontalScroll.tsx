@@ -228,7 +228,7 @@ function ProjectHCard({ item }: { item: ProjectsItem }) {
 
   return (
     <article className="card hcard">
-      <Link href={href} className="hcard__link">
+      <Link href={href} className="hcard__link cardHover">
         <div className="hcard__media">
           <Image
             src={item.thumbnail}

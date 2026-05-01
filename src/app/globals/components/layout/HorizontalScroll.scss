@@ -39,7 +39,7 @@
             height: 80%;
             display: inline-flex;
             width: auto;
-            gap: 5rem;
+            gap: 10rem;
             overflow: hidden;
             .first__item {
                 width: 50vw;
@@ -59,8 +59,7 @@
                 overflow: hidden;
                 max-height: 100%;
                 .hcard{
-                    padding: 0;
-                    background-color: #d7d7d700;
+                    
                     height: auto;
                     line-height: 0;
                     border-radius: var(--radius);
@@ -73,45 +72,55 @@
                             overflow: hidden;
                             font-size: 0;
                             line-height: 0;
+                            border-radius: var(--radius);
                             img{
                                 width: 100%;
                                 height: 100% !important;
-                                border-radius: var(--radius);
                                 object-fit: cover;
                                 transform-origin: center center;
-                                aspect-ratio:  1 / 1;
+                                aspect-ratio:  0.8 / 1;
+                                transition: transform 0.3s ease-out, filter 0.3s ease;
+                            }
+                        }
+                        .hcard__content{
+                            padding-top: calc((1 - var(--stack)) * 0.8rem + var(--stack) * 0.5rem);
+                            span{
+                                color: var(--color-primary);
+                                opacity: 0.8;
+                                font-size: var(--size-2xs);
+                                text-transform: uppercase;
+                                letter-spacing: .08em;
+                                margin-bottom: 0;
+                            }
+                            h3{
+                                font-size: var(--size-lg);
+                                color: var(--color-secondary-dark);
+                                margin-bottom: .3rem;
+                                transition: color .3s;
+                                text-transform: none;
+                                font-weight: 500;
+                            }
+                            p{
+                                font-size: var(--size-md);
+                                color: var(--color-primary);
+                                -webkit-line-clamp: 2;
+                                -webkit-box-orient: vertical;
+                                min-height: 2.8rem;
+                                line-height: 1.4rem;
+                                display: -webkit-box;
+                                overflow: hidden;
+                            }
+                        }
+                        &:hover{
+                            .hcard__media{
+                                img{
+                                    filter: brightness(0.5);
+                                    transform: scale(1.08);
+                                }
                             }
                         }
                     }
-                    .hcard__content{
-                        padding-top: calc((1 - var(--stack)) * 0.8rem + var(--stack) * 0.5rem);
-                        span{
-                            color: var(--color-primary);
-                            opacity: 0.8;
-                            font-size: var(--size-2xs);
-                            text-transform: uppercase;
-                            letter-spacing: .08em;
-                            margin-bottom: 0;
-                        }
-                        h3{
-                            font-size: var(--size-lg);
-                            color: var(--color-secondary-dark);
-                            margin-bottom: .3rem;
-                            transition: color .3s;
-                            text-transform: none;
-                            font-weight: 500;
-                        }
-                        p{
-                            font-size: var(--size-md);
-                            color: var(--color-primary);
-                            -webkit-line-clamp: 2;
-                            -webkit-box-orient: vertical;
-                            min-height: 2.8rem;
-                            line-height: 1.4rem;
-                            display: -webkit-box;
-                            overflow: hidden;
-                        }
-                    }
+                    
                     
                 }
                

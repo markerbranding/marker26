@@ -29,14 +29,14 @@
 
   /* Tamaños */
   --size-2xs: clamp(10px, 0.88vw, 13px);
-  --size-xs: clamp(12px, 0.97vw, 15px);
-  --size-sm: clamp(14px, 1.04vw, 17px);
-  --size-md: clamp(16px, 1.11vw, 18px);
-  --size-lg: clamp(19px, 1.53vw, 29px);
-  --size-xl: clamp(18px, 2.08vw, 35px);
-  --size-2xl: clamp(26px, 2.78vw, 53px);
-  --size-3xl: clamp(30px, 3.47vw, 67px);
-  --size-4xl: clamp(48px, 4.17vw, 80px);
+  --size-xs: clamp(12px, 0.97vw, 16px);
+  --size-sm: clamp(14px, 1.04vw, 18px);
+  --size-md: clamp(16px, 1.11vw, 20px);
+  --size-lg: clamp(18px, 1.53vw, 26px);
+  --size-xl: clamp(22px, 2.08vw, 30px);
+  --size-2xl: clamp(27px, 2.78vw, 40px);
+  --size-3xl: clamp(32px, 3.47vw, 50px);
+  --size-4xl: clamp(40px, 4.17vw, 60px);
 
   /* Layout */
   --wrap-at: 57rem; /* 64rem = 1024px */
