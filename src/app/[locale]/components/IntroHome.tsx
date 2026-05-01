@@ -108,7 +108,11 @@ export default function IntroHome() {
       </div>
 
       <div className="column__1">
-        <p className="split">{t("introText")}</p>
+        <h2 className="split">{t("introH2")}</h2>
+      </div>
+
+      <div className="column__1 fadeInOut">
+        <p className="split">{t("introP")}</p>
       </div>
     </section>
   );

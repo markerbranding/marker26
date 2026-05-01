@@ -16,6 +16,7 @@
 
   --color-gray: #e0e0e0;
   --color-gray-light: #cbd5de;
+  --color-gray-dark: #a2a2a2;
 
   --color-white: #d9d9d9;
   --color-black: #1a1a1a;
@@ -37,6 +38,9 @@
   --size-2xl: clamp(27px, 2.78vw, 40px);
   --size-3xl: clamp(32px, 3.47vw, 50px);
   --size-4xl: clamp(40px, 4.17vw, 60px);
+
+  --size-sp1: clamp(18px, 5vw, 80px);
+  --size-sp2: clamp(15px, 4vw, 50px);
 
   /* Layout */
   --wrap-at: 57rem; /* 64rem = 1024px */
@@ -257,11 +261,12 @@ img {
 .btn {
   width: auto;
   background-color: transparent;
-  border: 1px solid var(--color-primary-light);
+  border: 1px solid #5555559b;
+  border-radius: 200px;
   color: var(--color-primary);
   font-weight: 500;
   line-height: 1;
-  padding: 0.8em 1em;
+  padding: 0.8em 1.4em;
   font-size: var(--size-xs);
   cursor: pointer;
   display: flex;

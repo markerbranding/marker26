@@ -8,7 +8,7 @@
         height: auto;
         position: relative;
         .col__left.scroll-video__services {
-            --left: 55;
+            --left: 50;
             display: flex;
             flex-direction: column;
             gap: 2rem;
@@ -115,11 +115,11 @@
         }
 
         .col__right {
-            --right: 45;
+            --right: 50;
             .scroll-video__wrapper {
                 position: sticky;
-                top: 15vh;
-                height: 70vh;
+                top: 10vh;
+                height: 80vh;
                 width: 100%;
                 pointer-events: none;
                 canvas {

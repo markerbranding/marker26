@@ -4,6 +4,7 @@ import {useRef} from "react";
 import {useTranslations} from "next-intl";
 import {useGsapCore} from "@/app/globals/lib/gsapClient";
 import {useIsomorphicLayoutEffect} from "@/app/globals/hooks/useIsomorphicLayoutEffect";
+import Link from "next/link";
 
 export default function HeroHome() {
   const t = useTranslations("Home");
@@ -56,6 +57,7 @@ export default function HeroHome() {
         <h1>{t("heroTitle")}</h1>
         <h2>{t("heroSubtitle")}</h2>
         <p>{t("heroDescription")}</p>
+        <Link href={"/"} className="btn">Más información</Link>
       </div>
 
       <div className="column__1 col__bottom">
