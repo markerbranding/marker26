@@ -87,7 +87,15 @@ export default function HeroHome() {
           playsInline
           preload="none"
         >
-          <source src="/videos/marker_reel.mp4" type="video/mp4" />
+          <source
+            src="/home/videos/marker-reel-mobile.mp4"
+            type="video/mp4"
+            media="(max-width: 1024px)"
+          />
+          <source
+            src="/home/videos/marker-reel-desktop.mp4"
+            type="video/mp4"
+          />
           Tu navegador no soporta la etiqueta de video.
         </video>
       </div>
