@@ -4,6 +4,8 @@ import { useRef } from "react";
 import { useTranslations } from "next-intl";
 import { useGsapCore } from "@/app/globals/lib/gsapClient";
 import { useIsomorphicLayoutEffect } from "@/app/globals/hooks/useIsomorphicLayoutEffect";
+import LogoStrip from "@/app/globals/components/logos/LogoStrip";
+import Svg from "@/app/globals/components/img/Svg";
 
 export default function IntroHome() {
   const t = useTranslations("Home");
@@ -63,6 +65,10 @@ export default function IntroHome() {
           });
 
           ScrollTrigger.refresh();
+
+          // Avisa que el layout de este componente está listo
+          window.dispatchEvent(new CustomEvent("gsap:component-ready"));
+
         };
 
         build();
@@ -113,6 +119,34 @@ export default function IntroHome() {
 
       <div className="column__1 fadeInOut">
         <p className="split">{t("introP")}</p>
+      </div>
+      <div className="column__1 logo__strip">
+        <h4>Trabajamos con las siguiente tecnologías</h4>
+        <LogoStrip
+          speed={25}
+          logos={[
+            <Svg variant="Arrow" />,
+            <Svg variant="ArrowClassic" />,
+            <Svg variant="Arrow" />,
+            <Svg variant="ArrowClassic" />,
+            <Svg variant="Arrow" />,
+            <Svg variant="ArrowClassic" />,
+            <Svg variant="Arrow" />,
+            <Svg variant="ArrowClassic" />,
+            <Svg variant="Arrow" />,
+            <Svg variant="ArrowClassic" />,
+            <Svg variant="Arrow" />,
+            <Svg variant="ArrowClassic" />,
+            <Svg variant="Arrow" />,
+            <Svg variant="ArrowClassic" />,
+            <Svg variant="Arrow" />,
+            <Svg variant="ArrowClassic" />,
+            <Svg variant="Arrow" />,
+            <Svg variant="ArrowClassic" />,
+            <Svg variant="Arrow" />,
+            <Svg variant="ArrowClassic" />,
+          ]}
+        />
       </div>
     </section>
   );

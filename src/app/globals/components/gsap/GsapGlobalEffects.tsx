@@ -26,90 +26,108 @@ export default function GsapGlobalEffects() {
   useEffect(() => {
     if (typeof window === "undefined") return;
 
-    const ctx = gsap.context(() => {
-      const cards = gsap.utils.toArray<HTMLElement>(CARD_SELECTOR);
+    let ctx: any = null;
 
-      if (cards.length) {
-        gsap.set(cards, { opacity: 0, y: 50 });
+    const init = () => {
 
-        ScrollTrigger.batch(cards, {
-          start: "top 85%",
-          end: "bottom 20%",
-          once: false,
-          onEnter: (batch) =>
-            gsap.to(batch, {
-              opacity: 1,
-              y: 0,
-              duration: 0.7,
-              ease: "power3.out",
-              stagger: 0.08,
-              overwrite: true,
-            }),
-          onEnterBack: (batch) =>
-            gsap.to(batch, {
-              opacity: 1,
-              y: 0,
-              duration: 0.7,
-              ease: "power3.out",
-              stagger: 0.06,
-              overwrite: true,
-            }),
-          onLeaveBack: (batch) =>
-            gsap.to(batch, {
-              opacity: 0,
-              y: 50,
-              duration: 0.5,
-              ease: "power3.out",
-              overwrite: true,
-            }),
-        });
-      }
+      if (ctx) ctx.revert();
 
-      const elements = BATCH_SELECTORS
-        .flatMap((sel) => gsap.utils.toArray<HTMLElement>(sel))
-        .filter((el) => el && !el.closest(CARD_SELECTOR)); // ✅ evita conflicto
+      ctx = gsap.context(() => {
+        const cards = gsap.utils.toArray<HTMLElement>(CARD_SELECTOR);
 
-      if (elements.length) {
-        gsap.set(elements, { opacity: 0, y: 50 });
+        if (cards.length) {
+          gsap.set(cards, { opacity: 0, y: 50 });
 
-        ScrollTrigger.batch(elements, {
-          start: "top 90%",
-          end: "bottom 20%",
-          once: false,
-          onEnter: (batch) =>
-            gsap.to(batch, {
-              opacity: 1,
-              y: 0,
-              duration: 0.8,
-              ease: "power3.out",
-              stagger: 0.08,
-              overwrite: true,
-            }),
-          onEnterBack: (batch) =>
-            gsap.to(batch, {
-              opacity: 1,
-              y: 0,
-              duration: 0.8,
-              ease: "power3.out",
-              stagger: 0.06,
-              overwrite: true,
-            }),
-          onLeaveBack: (batch) =>
-            gsap.to(batch, {
-              opacity: 0,
-              y: 50,
-              duration: 0.6,
-              ease: "power3.out",
-              overwrite: true,
-            }),
-        });
-      }
+          ScrollTrigger.batch(cards, {
+            start: "top 85%",
+            end: "bottom 20%",
+            once: false,
+            onEnter: (batch) =>
+              gsap.to(batch, {
+                opacity: 1,
+                y: 0,
+                duration: 0.7,
+                ease: "power3.out",
+                stagger: 0.08,
+                overwrite: true,
+              }),
+            onEnterBack: (batch) =>
+              gsap.to(batch, {
+                opacity: 1,
+                y: 0,
+                duration: 0.7,
+                ease: "power3.out",
+                stagger: 0.06,
+                overwrite: true,
+              }),
+            onLeaveBack: (batch) =>
+              gsap.to(batch, {
+                opacity: 0,
+                y: 50,
+                duration: 0.5,
+                ease: "power3.out",
+                overwrite: true,
+              }),
+          });
+        }
 
-      // refresca después del render + triggers
-      requestAnimationFrame(() => ScrollTrigger.refresh());
-    });
+        const elements = BATCH_SELECTORS
+          .flatMap((sel) => gsap.utils.toArray<HTMLElement>(sel))
+          .filter((el) => el && !el.closest(CARD_SELECTOR)); // ✅ evita conflicto
 
-    return () => ctx.revert();
+        if (elements.length) {
+          gsap.set(elements, { opacity: 0, y: 50 });
+
+          ScrollTrigger.batch(elements, {
+            start: "top 90%",
+            end: "bottom 20%",
+            once: false,
+            onEnter: (batch) =>
+              gsap.to(batch, {
+                opacity: 1,
+                y: 0,
+                duration: 0.8,
+                ease: "power3.out",
+                stagger: 0.08,
+                overwrite: true,
+              }),
+            onEnterBack: (batch) =>
+              gsap.to(batch, {
+                opacity: 1,
+                y: 0,
+                duration: 0.8,
+                ease: "power3.out",
+                stagger: 0.06,
+                overwrite: true,
+              }),
+            onLeaveBack: (batch) =>
+              gsap.to(batch, {
+                opacity: 0,
+                y: 50,
+                duration: 0.6,
+                ease: "power3.out",
+                overwrite: true,
+              }),
+          });
+        }
+
+        // refresca después del render + triggers
+        requestAnimationFrame(() => ScrollTrigger.refresh());
+      });
+
+    };
+
+    // Espera a que los componentes con layout complejo estén listos
+    window.addEventListener("gsap:component-ready", init);
+
+    // También corre normalmente por si no hay componentes que disparen el evento
+    const timer = setTimeout(init, 100);
+
+    return () => {
+      window.removeEventListener("gsap:component-ready", init);
+      clearTimeout(timer);
+      if (ctx) ctx.revert();
+    };
   }, [gsap, ScrollTrigger, pathname]);
 
   return null;

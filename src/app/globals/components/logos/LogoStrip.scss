@@ -1,0 +1,40 @@
+.logo-strip {
+  width: 100%;
+  overflow: hidden;
+
+  .logo-strip__track {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: max-content; // se expande al contenido
+    will-change: transform;
+  }
+
+  .logo-strip__set {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 4rem; // espacio entre logos
+    padding-right: 4rem; // para que el gap también aplique entre sets
+  }
+
+  .logo-strip__item {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    // Ajusta según el tamaño de tus logos
+    height: 3rem;
+    
+    svg {
+      height: 100%;
+      width: auto;
+      opacity: 0.5; // tono neutro para tiras de logos
+      transition: opacity 0.3s;
+      
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+}
