@@ -26,6 +26,7 @@ const LogoMarker = (props) => (
         fill: "#0067b9",
       }}
       transform="matrix(-.2184 0 0 -.2184 177.398 230.275)"
+      className="st1"
     />
     <path
       d="M654.382 1028.447h140.73v29h-140.73z"
@@ -33,6 +34,7 @@ const LogoMarker = (props) => (
         fill: "#e4002b",
       }}
       transform="matrix(-.22282 0 0 -.23516 177.498 276.277)"
+      className="st2"
     />
   </svg>
 )

@@ -39,8 +39,8 @@
   --size-3xl: clamp(32px, 3.47vw, 50px);
   --size-4xl: clamp(40px, 4.17vw, 60px);
 
-  --size-sp1: clamp(18px, 4vw, 70px);
-  --size-sp2: clamp(15px, 3vw, 50px);
+  --size-sp1: clamp(18px, 3vw, 70px);
+  --size-sp2: clamp(15px, 2vw, 50px);
 
   /* Layout */
   --wrap-at: 57rem;
@@ -203,7 +203,7 @@ h1 {
 }
 
 h2 {
-  font-size: var(--size-xl);
+  font-size: var(--size-2xl);
   color: var(--color-primary);
   font-weight: 500;
   line-height: 1.1;

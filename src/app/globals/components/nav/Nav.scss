@@ -10,7 +10,6 @@
     width: 100%;
     height: auto;
     box-sizing: border-box;
-    overflow-x: clip;
     transform: translateY(0);
     transition: transform 0.35s ease, background-color 0.5s ease;
     will-change: transform;
@@ -37,6 +36,13 @@
                     width: auto;
                     .st0{
                         transition: fill 0.5s ease;
+                    }
+                }
+                &.is-open{
+                    svg{
+                        .st0{
+                            fill: var(--color-white) !important;
+                        }
                     }
                 }
             }
@@ -119,8 +125,9 @@
             display: block;
             position: absolute;
             inset: 60px 0 auto 0; /* debajo del nav */
-            padding: 1.5rem 2rem 2rem;
-            background-color: var(--color-secondary-dark);
+            padding-top: 80px;
+            padding-inline: var(--gap);
+            background-color: var(--color-primary-dark);
             transform: translateX(0%);
             clip-path: circle(0.0% at 100% 0);
 
@@ -143,6 +150,13 @@
                 display: flex;
                 flex-direction: column;
                 gap: 1rem;
+                li{
+                    a{
+                        color: var(--color-white);
+                        font-size: var(--size-lg);
+                        text-decoration: none;
+                    }
+                }
             }
         }
     }

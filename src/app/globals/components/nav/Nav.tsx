@@ -69,7 +69,7 @@ export default function Nav() {
     <header className={`site__header ${isHidden ? "site__header--hidden" : ""}`}>
       <nav>
         <div className="nav__brand">
-          <Link href={basePath} className="nav__logo">
+          <Link href={basePath} className={`nav__logo ${isOpen ? "is-open" : ""}`}>
             <Logo />
             {/* <span className="nav__brand-name">Marker</span> */}
           </Link>
