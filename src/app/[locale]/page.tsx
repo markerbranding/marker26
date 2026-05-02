@@ -79,6 +79,8 @@ export default async function HomePage({
       />
 
 
+{/* 
+
       <HorizontalScroll
         data={homeHorizontalScroll}
         variant="projects"
@@ -86,11 +88,11 @@ export default async function HomePage({
         pinSelector=".section__horizontalScroll"
       />
 
-      {/* 
+       */}
       <RecentProjectsHomeClient>
         <RecentProjectsHomeServer locale={locale} />
       </RecentProjectsHomeClient>
-      */}
+     
 
       <ClientsHome />
       <TestimonialsSlider />

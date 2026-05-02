@@ -107,7 +107,7 @@ export default function IntroHome() {
         <h3 className="prefix">{t("introTitle")}</h3>
       </div>
 
-      <div className="column__1">
+      <div className={`column__1`}>
         <h2 className="split">{t("introH2")}</h2>
       </div>
 

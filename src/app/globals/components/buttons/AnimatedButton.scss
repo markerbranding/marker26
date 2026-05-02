@@ -1,0 +1,98 @@
+.btn {
+    width: auto;
+    color: var(--color-white);
+    background-color: var(--color-accent);
+    border-width: 2px;
+    border-style: solid;
+    border-color: var(--color-accent);
+    border-radius: 200px;
+    padding-block: 0.5em;
+    padding-inline: 1.4rem;
+    padding-right: 3.2rem;
+    font-size: var(--size-md);
+    font-weight: 500;
+    line-height: 1.5;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.05rem;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    overflow: hidden; // ← clip global del botón
+    cursor: pointer;
+
+    .btn__text {
+        display: inline-flex; // ← flex para que los chars queden en fila
+        align-items: center;
+
+        &--bottom {
+            position: absolute;
+            left: 1.4rem !important;
+            inset: 0;
+            display: inline-flex;
+            align-items: center;
+            justify-content: flex-start;
+        }
+    }
+
+    .icon__wrapper{
+        background-color: var(--color-white);
+        position: absolute;
+        right: 0.8rem;
+        width: calc((1 - var(--stack)) * 2rem + var(--stack) * 1.8rem);
+        border-radius: 100px;
+        height: auto;
+        aspect-ratio: 1 / 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transform: scale(0.2) rotate(180deg);
+        transition: transform 0.3s ease-in-out;
+        svg{
+            width: calc((1 - var(--stack)) * 1.2rem + var(--stack) * 1rem);
+            height: auto;
+            aspect-ratio: 1 / 1;
+            transform: scale(0);
+            transition: transform 0.3s ease-in-out;
+            path{
+                fill: var(--color-accent);
+            }
+        }
+    }
+
+    // La máscara: cada letra tiene su contenedor con overflow hidden
+    .char-mask {
+        display: inline-block;
+        overflow: hidden; // ← clip por letra
+        line-height: 1.5; // debe coincidir con el line-height del botón
+    }
+
+    // El char animable
+    .char {
+        display: inline-block;
+        // Estado inicial del bottom: abajo (lo setea GSAP con fromTo)
+    }
+    
+    &:hover{
+        .icon__wrapper{
+            transform: scale(1);
+            svg{
+                transform: scale(1);
+            }
+        }
+        
+    }
+    &__gray{
+        background-color: var(--color-gray-light);
+        color: var(--color-primary);
+        border-color: var(--color-gray-light);
+        .icon__wrapper{
+            background-color: var(--color-primary);
+            svg{
+                path{
+                    fill: var(--color-white);
+                }
+            }
+        }
+    }
+}

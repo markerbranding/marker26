@@ -41,18 +41,39 @@
         padding-block: 0;
         padding-inline: 0%;
         z-index: 1;
-        .col__top{
-            padding-left: var(--gap);
-            padding-right: calc((1 - var(--stack)) * 40% + var(--stack) * 3rem);
-            padding-top: calc(60px + 3rem);
-            padding-bottom: calc((1 - var(--stack)) * 5rem + var(--stack) * 3rem);
-            h2{
-                font-size: var(--size-sp1);
-                color: var(--color-secondary-dark);
+        .column__2{
+            padding-top: calc((1 - var(--stack)) * calc(60px + 20vh) + var(--stack) * calc(60px + 4rem));
+            padding-inline: var(--gap);
+            padding-bottom: calc((1 - var(--stack)) * 8rem + var(--stack) * 4rem);
+            
+            .col__left{
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                h1{
+                    font-size: var(--size-sp2);
+                    color: var(--color-primary);
+                    font-weight: 300;
+                    line-height: 1;
+                }
+                h2{
+                    font-size: var(--size-sp1);
+                    color: var(--color-primary);
+                    font-weight: 500;
+                    line-height: 1;
+                }
             }
-            p{
-                font-size: var(--size-2xl);
-                line-height: 1.2;
+            .col__right{
+                display: flex;
+                justify-content: flex-start;
+                align-items: flex-end;
+                padding-left: calc((1 - var(--stack)) * 20% + var(--stack) * 0%);
+                padding-top: calc((1 - var(--stack)) * 3rem + var(--stack) * 2rem);
+                p{
+                    font-size: var(--size-xl);
+                    line-height: 1.2;
+                    color: var(--color-primary-light);
+                }
             }
         }
         .col__bottom{
@@ -72,8 +93,8 @@
         position: relative;
         overflow: hidden;
         z-index: 1;
-        padding-top: calc((1 - var(--stack)) * 10rem + var(--stack) * 6rem);
-        padding-bottom: calc((1 - var(--stack)) * 5rem + var(--stack) *3rem);
+        padding-top: calc((1 - var(--stack)) * 16vh + var(--stack) * 6rem);
+        padding-bottom: calc((1 - var(--stack)) * 8vh + var(--stack) *3rem);
         padding-inline: var(--gap);
         background-color: var(--color-primary-dark);
         .column__1{
@@ -95,6 +116,21 @@
             }
         }
         
+    }
+
+    .recent__projects{
+        background-color: var(--color-primary-dark);
+        padding-inline: var(--gap);
+        padding-top: calc((1 - var(--stack)) * 12vh + var(--stack) * 6rem);
+        .bg{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            right: 0;
+            background-color: var(--page-bg-color);
+            transform-origin: right center  ;
+        }
     }
 
     .section__clients{

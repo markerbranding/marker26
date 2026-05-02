@@ -28,7 +28,7 @@ export default function ProjectCard({
 
   return (
     <article className={`card card${isNew ? " card--new" : ""}`}>
-      <Link href={href} className="project-card__link">
+      <Link href={href} className="project-card__link cardHover">
         <div className="project-card__thumb-wrapper">
           <Image
             src={thumbnail}

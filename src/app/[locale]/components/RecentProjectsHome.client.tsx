@@ -36,7 +36,6 @@ export default function RecentProjectsHomeClient({ children }: Props) {
 
         gsap.from(h3Ref.current, {
             opacity: 0,
-            x: 30,
             ease: "power4.out",
             scrollTrigger: {
                 trigger: h3Ref.current,
@@ -52,8 +51,10 @@ export default function RecentProjectsHomeClient({ children }: Props) {
   return (
     <section ref={rootRef} className="recent__projects">
         <div ref={bgRef} className="bg" />
-        <div className="column__1">
+        <div className="column__1 fadeInOut">
             <h3 ref={h3Ref} className="prefix">{tHome("recentProjectsTitle")}</h3>
+        </div>
+        <div className="column__1">
             {children}
         </div>
     </section>

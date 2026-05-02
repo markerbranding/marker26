@@ -7,6 +7,7 @@ import { useGsapCore } from "@/app/globals/lib/gsapClient";
 import { useIsomorphicLayoutEffect } from "@/app/globals/hooks/useIsomorphicLayoutEffect";
 import { useTranslations, useLocale } from "next-intl";
 import { services } from "@/app/globals/data/services.data";
+import AnimatedButton from "@/app/globals/components/buttons/AnimatedButton";
 
 type ScrollFramesProps = {
   desktopFramesBase: string;
@@ -252,9 +253,7 @@ export default function ScrollFrames({
                   <div className="card__data">
                     <h3 className="service-card__title">{data.title}</h3>
                     <p className="service-card__excerpt">{data.excerpt}</p>
-                    <Link className="btn" href={href}>
-                      {data.cta}
-                    </Link>
+                    <AnimatedButton label={data.cta} href={href} className="btn__gray" />
                   </div>
                 </article>
               );
