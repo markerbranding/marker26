@@ -4,75 +4,220 @@ import {useRef} from "react";
 import {useTranslations} from "next-intl";
 import {useGsapCore} from "@/app/globals/lib/gsapClient";
 import {useIsomorphicLayoutEffect} from "@/app/globals/hooks/useIsomorphicLayoutEffect";
-import Link from "next/link";
 import AnimatedButton from "@/app/globals/components/buttons/AnimatedButton";
 
 export default function HeroHome() {
   const t = useTranslations("Home");
-  const rootRef = useRef<HTMLDivElement | null>(null);
-  const {gsap} = useGsapCore();
+  const rootRef = useRef<HTMLElement | null>(null);
+
+  const {gsap, ScrollTrigger} = useGsapCore();
 
   useIsomorphicLayoutEffect(() => {
     if (!rootRef.current) return;
+    if (!gsap || !ScrollTrigger) return;
 
-    const colTop = rootRef.current.querySelector<HTMLElement>(".col__left");
+    const root = rootRef.current;
+
+    const colTop = root.querySelector<HTMLElement>(".column__2");
+    const colLeft = root.querySelector<HTMLElement>(".col__left");
+    const colRight = root.querySelector<HTMLElement>(".col__right");
+    const video = root.querySelector<HTMLElement>(".hero__video");
+
+    if (!colTop || !colLeft || !colRight || !video) return;
+
     const menu = 60;
-    const colTopHeight = colTop?.offsetHeight ?? 0;
 
     const ctx = gsap.context(() => {
-        gsap.from(".hero__title", {
-            y: 40,
-            opacity: 0,
-            duration: 0.9,
-            ease: "power3.out",
-        });
+      /*
+       * =============================
+       * ENTRADA INICIAL
+       * =============================
+       */
 
-        gsap.from(".hero__subtitle", {
+      const introTl = gsap.timeline({
+        defaults: {
+          ease: "power3.out"
+        }
+      });
+
+      introTl
+        .from(".hero__title", {
+          y: 40,
+          opacity: 0,
+          duration: 0.9
+        })
+        .from(
+          ".hero__subtitle",
+          {
             y: 20,
             opacity: 0,
-            duration: 0.8,
-            ease: "power3.out",
-            delay: 0.15,
-        });
-
-        gsap.from(".hero__description", {
+            duration: 0.8
+          },
+          "-=0.65"
+        )
+        .from(
+          ".hero__description",
+          {
             y: 20,
             opacity: 0,
-            duration: 0.8,
-            ease: "power3.out",
-            delay: 0.15,
-        });
-
-        gsap.to(".hero__video", {
+            duration: 0.8
+          },
+          "-=0.65"
+        )
+        .from(
+          ".btn__wrapper",
+          {
+            y: 15,
+            opacity: 0,
+            duration: 0.7
+          },
+          "-=0.55"
+        )
+        .fromTo(
+          ".col__bottom",
+          {
+            opacity: 0,
+            scale: 0.8,
+            y: 0,
+          },
+          {
+            y: 0,
             opacity: 1,
-            scale: 1.1,
-            y: "8rem",
-            ease: "power2.out",
-            scrollTrigger: {
-              trigger: ".hero__video",
-              start: `top ${colTopHeight + menu}`,
-              end: "bottom top",
-              scrub: true,
-            }
+            scale: 1,
+            duration: 1.2,
+            ease: "power3.out"
+          },
+          "-=0.5"
+        )
+        
+
+      /*
+       * =============================
+       * VIDEO PARALLAX / SCALE
+       * =============================
+       */
+
+      gsap.fromTo(
+        video,
+        {
+          scale: 1,
+          y: 0
+        },
+        {
+          scale: 1.1,
+          y: "0rem",
+          ease: "none",
+          scrollTrigger: {
+            trigger: video,
+            start: () => {
+              const colTopHeight = colTop.offsetHeight;
+              return `top ${colTopHeight + menu}`;
+            },
+            //end: `bottom top`,
+            end: () => {
+              const colTopHeight = colTop.offsetHeight;
+              return `bottom ${colTopHeight + menu}`;
+            },
+            scrub: true,
+            invalidateOnRefresh: true,
+          }
+        }
+      );
+
+      /*
+       * =============================
+       * FADE DEL CONTENIDO
+       * =============================
+       *
+       * El contenido empieza a desaparecer
+       * conforme el video se aproxima/pasa
+       * sobre él.
+       */
+
+      gsap.to([colLeft, colRight], {
+        opacity: 0,
+        filter: "blur(5px)",
+        y: -50,
+        scale: 0.9,
+        ease: "none",
+        scrollTrigger: {
+          trigger: video,
+          /*
+           * Empieza cuando la parte superior
+           * del video se acerca al contenido.
+           */
+          start: () => {
+            const colTopHeight = colTop.offsetHeight;
+            return `top ${colTopHeight + menu}`;
+          },
+          /*
+           * Cuando el video ya avanzó sobre
+           * el bloque superior, termina el fade.
+           */
+          end: () => {
+            const colTopHeight = colTop.offsetHeight;
+            return `top ${menu + colTopHeight * 0.55}`;
+          },
+          scrub: true,
+          invalidateOnRefresh: true,
+          // markers: true
+        }
+      });
+      /*
+       * Si cambia el tamaño,
+       * recalculamos todas las posiciones.
+       */
+      let resizeRAF = 0;
+
+      const handleResize = () => {
+        cancelAnimationFrame(resizeRAF);
+
+        resizeRAF = requestAnimationFrame(() => {
+          ScrollTrigger.refresh();
         });
-    }, rootRef);
+      };
+
+      window.addEventListener("resize", handleResize);
+
+      return () => {
+        window.removeEventListener("resize", handleResize);
+        cancelAnimationFrame(resizeRAF);
+      };
+    }, root);
 
     return () => ctx.revert();
-  }, [gsap]);
+  }, [gsap, ScrollTrigger]);
 
   return (
     <section className="section__hero" ref={rootRef}>
       <div className="column__2">
         <div className="col__left">
-          <h1 className="hero__title">{t("heroTitle")}</h1>
-          <h2 className="hero__subtitle">{t("heroSubtitle")}</h2>
+          <h1 className="hero__title">
+            {t("heroTitle")}
+          </h1>
+
+          <h2 className="hero__subtitle">
+            {t("heroSubtitle")}
+          </h2>
+
           <div className="btn__wrapper">
-            <AnimatedButton label="Más información" href="/projects" />
-            <AnimatedButton label="Ver proyectos" href="/projects" className="btn__gray" />
+            <AnimatedButton
+              label="Más información"
+              href="/projects"
+            />
+
+            <AnimatedButton
+              label="Ver proyectos"
+              href="/projects"
+              className="btn__gray"
+            />
           </div>
         </div>
+
         <div className="col__right">
-          <p className="hero__description">{t("heroDescription")}</p>
+          <p className="hero__description">
+            {t("heroDescription")}
+          </p>
         </div>
       </div>
 
@@ -92,10 +237,12 @@ export default function HeroHome() {
             type="video/mp4"
             media="(max-width: 1024px)"
           />
+
           <source
             src="/home/videos/marker-reel-desktop.mp4"
             type="video/mp4"
           />
+
           Tu navegador no soporta la etiqueta de video.
         </video>
       </div>

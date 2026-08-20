@@ -1,7 +1,8 @@
 #Projects{
 
     .section__hero{
-        --pad: clamp(4rem, 3vh, 6rem) 5%;
+        padding-top: calc((1 - var(--stack)) * 8rem + var(--stack) * 4rem);
+        padding-inline: var(--gap);
         .column__1{
             h1{
                 font-weight: 400;
@@ -9,7 +10,7 @@
                 opacity: 0.8;
             }
             h2{
-                font-size: var(--size-3xl);
+                font-size: var(--size-sp1);
                 color: var(--color-primary);
                 font-weight: 500;
                 width: min(100%, clamp(32rem, 70vw, 50%));

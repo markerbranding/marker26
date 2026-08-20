@@ -1,9 +1,27 @@
 .cursor-tooltip {
   background-color: var(--color-accent);
   color: var(--page-bg-color);
-  padding: 0.5rem 1rem;
+  padding-block: 0.5rem;
+  padding-inline: 0.8rem 0.5rem;
   border-radius: 100px;
   font-size: var(--size-sm);
   white-space: nowrap;
   will-change: transform;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  opacity: 0;
+  svg{
+    width: calc((1 - var(--stack)) * 1.3rem + var(--stack) * 1rem);
+    height: auto;
+    aspect-ratio: 1 / 1;
+    transition: transform 0.3s ease-in-out;
+    background-color: var(--color-white);
+    border-radius: 100px;
+    padding: 0.2rem;
+    transform: rotate(-45deg);
+    path{
+      fill: var(--color-accent);
+    }
+  }
 }

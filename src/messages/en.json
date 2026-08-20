@@ -5,17 +5,22 @@
     "services": "Services",
     "about": "About",
     "blog": "Blog",
-    "contact": "Contact"
+    "contact": "Contact",
+    "quote": "Get a quote"
   },
   "Home": {
     "heroTitle": "Branding, marketing & web studio",
     "heroSubtitle": "We build brands with intention and strategy.",
     "heroDescription": "Creamos estrategias para posicionar tu negocio en el mercado y en Google",
+    "heroPrimaryCta": "Learn more",
+    "heroSecondaryCta": "View projects",
     "servicesTitle": "Our services",
     "introTitle": "Approach",
     "introH2": "Nos especializamos en crear marcas a través del diseño de estrategias de posicionamiento para las empresas, con base en la identificación de sus valores y la estructura de diferenciadores.",
     "introP": "Nos especializamos en crear marcas a través del diseño de estrategias de posicionamiento para las empresas.",
-    "recentProjectsTitle": "Featured projects"
+    "recentProjectsPrefix": "Portfolio",
+    "recentProjectsTitle": "Featured projects",
+    "recentProjectsCta": "Ver todos los proyectos"
   },
   
   "HorizontalScroll": {

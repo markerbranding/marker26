@@ -1,7 +1,29 @@
 .logo-strip {
   width: 100%;
   overflow: hidden;
-
+  position: relative;
+  &::before{
+    content:"";
+    position: absolute;
+    height: 100%;
+    width: 5rem;
+    background: var(--color-primary-dark);
+    background: linear-gradient(270deg, #161a1c00 0%, #161a1c 100%);
+    z-index: 1;
+    top: 0;
+    left: 0;
+  }
+  &::after{
+    content:"";
+    position: absolute;
+    height: 100%;
+    width: 5rem;
+    background: var(--color-primary-dark);
+    background: linear-gradient(90deg, #161a1c00 0%, #161a1c 100%);
+    z-index: 1;
+    top: 0;
+    right: 0;
+  }
   .logo-strip__track {
     display: flex;
     flex-direction: row;
@@ -24,12 +46,15 @@
     align-items: center;
     justify-content: center;
     // Ajusta según el tamaño de tus logos
-    height: 3rem;
-    
+    height: 7rem;
+    width: auto;
+    aspect-ratio: unset;
     svg {
-      height: 100%;
-      width: auto;
-      opacity: 0.5; // tono neutro para tiras de logos
+      aspect-ratio: unset;
+      height: 7rem;
+      width: 100%;
+      object-fit: contain;
+      opacity: 1;
       transition: opacity 0.3s;
       
       &:hover {

@@ -34,7 +34,7 @@ export default async function RecentProjectsHome({ locale }: Props) {
   });
 
   return (
-    <div className="listado x2 fadeCards">
+    <div className="listado fadeCards">
       {featuredCards.map((p) => (
         <ProjectCard
           key={p.slug}

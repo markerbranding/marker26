@@ -2,7 +2,7 @@
 import "./page.scss";
 import PageBackgroundSetter from "@/app/globals/components/background/PageBackgroundSetter";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import HeroHome from "./components/HeroHome";
+import HeroHomeV2 from "./components/HeroHomeV2";
 import PreFooter from "@/app/globals/components/footer/PreFooter";
 import ScrollVideo from "../globals/components/spline/ScrollVideo";
 import IntroHome from "./components/IntroHome";
@@ -65,7 +65,7 @@ export default async function HomePage({
       
       <PageBackgroundSetter color="#f0f0f0" navMode="light" />
 
-      <HeroHome />
+      <HeroHomeV2 />
       <IntroHome />
       {/*  
       <ScrollVideo src="/videos/services_home_desktop.mp4" mobileSrc="/videos/services_home_mobile.mp4" />

@@ -65,4 +65,5 @@ export const clients: ClientsBase[] = [
     key: "mg",
     logo: "/clients/mg.svg",
   },
+  
 ];

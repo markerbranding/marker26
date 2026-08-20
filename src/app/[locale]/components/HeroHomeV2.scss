@@ -1,0 +1,269 @@
+.section__hero-v2 {
+    position: relative;
+    width: 100%;
+    min-height: 170svh;
+    padding: 0;
+    background-color: var(--page-bg-color);
+    overflow: clip;
+    justify-content: flex-start;
+
+
+    /* CONTENIDO */
+    .hero-v2__content {
+        position: relative;
+        z-index: 2;
+        width: 100%;
+        min-height: calc(100svh - 70px);
+        padding-inline: var(--gap);
+        pointer-events: auto;
+        .hero-v2__main {
+            min-height: 58svh;
+            padding-top: clamp(8rem, 16vh, 14rem);
+            align-items: flex-start;
+            .col__left {
+                --left: 45;
+                justify-content: flex-start;
+                padding-right: clamp(1rem, 5vw, 6rem);
+                .hero-v2__copy {
+                    width: 100%;
+                        h1 {
+                            font-size: var(--size-sp2);
+                            color: var(--color-primary);
+                            font-weight: 300;
+                            line-height: 1;
+                        }
+                        h2 {
+                            font-size: var(--size-sp1); /*clamp(2.3rem, 4vw, 5rem);*/
+                            line-height: 1.02;
+                            margin-bottom: clamp(1.5rem, 3vh, 3rem);
+                        }
+                        .hero-v2__buttons {
+                            display: flex;
+                            flex-wrap: wrap;
+                            gap: 0.7rem;
+                        }
+                }
+            }
+            .col__right {
+                --right: 55;
+                min-height: 1px;
+            }
+        }
+        .hero-v2__description-row {
+            min-height: calc(42svh - 60px);
+            align-items: stretch;
+            .col__left {
+                --left: 40;
+                justify-content: flex-start;
+                padding-top: clamp(2rem, 8vh, 7rem);
+                padding-right: clamp(1rem, 5vw, 6rem);
+                .hero-v2__description {
+                    font-size: calc(var(--size-sp1) / 2);
+                    line-height: 1.2;
+                    color: var(--color-primary-light);
+                    will-change: opacity, filter, transform;
+                }
+            }
+            .col__right {
+                --right: 60;
+            }
+        }
+    }
+
+    .hero-v2__media-track {
+        position: absolute;
+        inset: 0;
+        z-index: 3;
+        pointer-events: none;
+        /* El sticky vive dentro del track. */
+        .hero-v2__media-sticky {
+            position: sticky;
+            top: 0;
+            width: 100%;
+            height: 100svh;
+            overflow: hidden;
+
+            /* FRAME INICIAL DEL VIDEO */
+            .hero-v2__video-frame {
+                position: absolute;
+                right: 0;
+                bottom: 0;
+                /*
+                * Estado inicial basado en tu PDF.
+                */
+                width: 55%;
+                height: 70svh;
+                overflow: hidden;
+                border-radius: var(--radius) 0 0 0;
+                transform-origin: right bottom;
+                will-change: width, height, transform, opacity;
+                video {
+                    display: block;
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    transform-origin: center center;
+                    will-change: transform;
+                }
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 1024px) {
+
+  .section__hero-v2 {
+    min-height: 170svh;
+
+    .hero-v2__content {
+
+      .hero-v2__main {
+        min-height: 55svh;
+
+        padding-top: clamp(7rem, 12vh, 10rem);
+
+        .col__left {
+          width: 100%;
+          padding-right: 0;
+
+          .hero-v2__copy {
+
+            .hero-v2__title {
+              max-width: 15ch;
+            }
+          }
+        }
+      }
+
+
+      .hero-v2__description-row {
+        min-height: 45svh;
+
+        .col__left {
+          width: 100%;
+
+          .hero-v2__description {
+            max-width: 28rem;
+          }
+        }
+      }
+    }
+
+
+    .hero-v2__media-track {
+
+      .hero-v2__media-sticky {
+
+        .hero-v2__video-frame {
+          width: 50%;
+          height: 55svh;
+        }
+      }
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 768px) {
+
+  .section__hero-v2 {
+    min-height: 160svh;
+
+    .hero-v2__content {
+      padding-inline: 5%;
+
+      .hero-v2__main {
+        min-height: 60svh;
+
+        .col__left {
+
+          .hero-v2__copy {
+
+            .hero-v2__title {
+              font-size: var(--size-2xl);
+              max-width: 18ch;
+            }
+          }
+        }
+      }
+
+
+      .hero-v2__description-row {
+        min-height: 40svh;
+
+        .col__left {
+          padding-top: 4vh;
+
+          .hero-v2__description {
+            max-width: 80%;
+          }
+        }
+      }
+    }
+
+
+    .hero-v2__media-track {
+
+      .hero-v2__media-sticky {
+
+        .hero-v2__video-frame {
+          /*
+           * En móvil no tiene sentido empezar
+           * exactamente en 50% como desktop.
+           */
+          width: 65%;
+          height: 48svh;
+        }
+      }
+    }
+  }
+}

@@ -3,7 +3,8 @@
 import { useRef } from "react";
 import { useGsapCore } from "@/app/globals/lib/gsapClient";
 import { useIsomorphicLayoutEffect } from "@/app/globals/hooks/useIsomorphicLayoutEffect";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
+import AnimatedButton from "@/app/globals/components/buttons/AnimatedButton";
 
 type Props = {
   children: React.ReactNode;
@@ -15,6 +16,7 @@ export default function RecentProjectsHomeClient({ children }: Props) {
     const bgRef = useRef<HTMLDivElement | null>(null);
     const h3Ref = useRef<HTMLHeadingElement | null>(null);
     const { gsap } = useGsapCore();
+    const locale = useLocale();
 
     useIsomorphicLayoutEffect(() => {
         if (!rootRef.current || !bgRef.current || !h3Ref.current) return;
@@ -50,12 +52,15 @@ export default function RecentProjectsHomeClient({ children }: Props) {
 
   return (
     <section ref={rootRef} className="recent__projects">
-        <div ref={bgRef} className="bg" />
         <div className="column__1 fadeInOut">
-            <h3 ref={h3Ref} className="prefix">{tHome("recentProjectsTitle")}</h3>
+            <h3 ref={h3Ref} className="prefix">{tHome("recentProjectsPrefix")}</h3>
+            <h2>{tHome("recentProjectsTitle")}</h2>
         </div>
         <div className="column__1">
             {children}
+        </div>
+        <div className="column__1 col__btn">
+            <AnimatedButton label={tHome("recentProjectsCta")} href={`/${locale}/projects/`} className="btn__red" />
         </div>
     </section>
   );

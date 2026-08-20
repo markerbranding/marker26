@@ -266,11 +266,7 @@ export default function ScrollFrames({
             <canvas
               ref={canvasRef}
               style={{
-                width: "100%",
-                height: "100%",
-                display: "block",
                 objectFit: "cover",   // no aplica a canvas, usa CSS
-                borderRadius: "var(--radius)",
               }}
             />
           </div>

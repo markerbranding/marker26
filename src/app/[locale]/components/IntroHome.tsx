@@ -121,30 +121,23 @@ export default function IntroHome() {
         <p className="split">{t("introP")}</p>
       </div>
       <div className="column__1 logo__strip">
-        <h4>Trabajamos con las siguiente tecnologías</h4>
+        <h4>Trabajamos con las siguiente tecnologías:</h4>
         <LogoStrip
           speed={25}
           logos={[
-            <Svg variant="Arrow" />,
-            <Svg variant="ArrowClassic" />,
-            <Svg variant="Arrow" />,
-            <Svg variant="ArrowClassic" />,
-            <Svg variant="Arrow" />,
-            <Svg variant="ArrowClassic" />,
-            <Svg variant="Arrow" />,
-            <Svg variant="ArrowClassic" />,
-            <Svg variant="Arrow" />,
-            <Svg variant="ArrowClassic" />,
-            <Svg variant="Arrow" />,
-            <Svg variant="ArrowClassic" />,
-            <Svg variant="Arrow" />,
-            <Svg variant="ArrowClassic" />,
-            <Svg variant="Arrow" />,
-            <Svg variant="ArrowClassic" />,
-            <Svg variant="Arrow" />,
-            <Svg variant="ArrowClassic" />,
-            <Svg variant="Arrow" />,
-            <Svg variant="ArrowClassic" />,
+            <Svg variant="Vercel" />,
+            <Svg variant="Sanity" />,
+            <Svg variant="Nextjs" />,
+            <Svg variant="Astro" />,
+            <Svg variant="Gsap" />,
+            <Svg variant="Nest" />,
+            <Svg variant="Supabase" />,
+            <Svg variant="Resend" />,
+            <Svg variant="Webflow" />,
+            <Svg variant="Affinity" />,
+            <Svg variant="Cavalry" />,
+            <Svg variant="Davinci" />,
+            
           ]}
         />
       </div>

@@ -7,7 +7,7 @@ import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { testimonials } from "@/app/globals/data/testimonials.data";
 import QuoteImage from "./QuoteImage"
-import Arrow from "@/app/globals/components/img/Arrow"
+import Svg from "@/app/globals/components/img/Svg";
 
 import "@splidejs/splide/dist/css/splide.min.css";
 import "./TestimonialsSlider.scss";
@@ -96,7 +96,7 @@ export default function TestimonialsSlider({
               aria-label={t("prev")}
               onClick={() => splideRef.current?.go("<")}
             >
-              <Arrow />
+              <Svg variant="ArrowClassic" />
             </button>
 
             <button
@@ -105,7 +105,7 @@ export default function TestimonialsSlider({
               aria-label={t("next")}
               onClick={() => splideRef.current?.go(">")}
             >
-              <Arrow />
+              <Svg variant="ArrowClassic" />
             </button>
           </div>
         </div>

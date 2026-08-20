@@ -5,17 +5,22 @@
     "services": "Servicios",
     "about": "Nosotros",
     "blog": "Blog",
-    "contact": "Contacto"
+    "contact": "Contacto",
+    "quote": "Cotizar"
   },
   "Home": {
-    "heroTitle": "Branding y desarrollo web",
-    "heroSubtitle": "Creamos estrategias para posicionar tu negocio en el mercado y en Google.",
+    "heroTitle": "Branding, publicidad y desarrollo web",
+    "heroSubtitle": "Creamos estrategias de marca para crecer tu negocio.",
     "heroDescription": "Nos especializamos en crear marcas a través del diseño de estrategias de posicionamiento para las empresas, con base en la identificación de sus valores y la estructura de diferenciadores.",
+    "heroPrimaryCta": "Más información",
+    "heroSecondaryCta": "Ver proyectos",
     "servicesTitle": "Nuestros servicios",
     "introTitle": "Enfoque",
     "introH2": "Nos especializamos en crear marcas a través del diseño de estrategias de posicionamiento para las empresas, con base en la identificación de sus valores y la estructura de diferenciadores.",
     "introP": "Nos especializamos en crear marcas a través del diseño de estrategias de posicionamiento para las empresas.",
-    "recentProjectsTitle": "Proyectos destacados"
+    "recentProjectsPrefix": "Portafolio",
+    "recentProjectsTitle": "Proyectos destacados",
+    "recentProjectsCta": "Ver todos los proyectos"
   },
   
   "HorizontalScroll": {
